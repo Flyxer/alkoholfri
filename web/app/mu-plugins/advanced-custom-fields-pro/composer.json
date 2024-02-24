@@ -1,0 +1,6 @@
+{
+  "name": "increo-composer/advanced-custom-fields-pro",
+  "description": "Advanced Custom Fields Pro",
+  "type": "wordpress-muplugin",
+  "require": {}
+}

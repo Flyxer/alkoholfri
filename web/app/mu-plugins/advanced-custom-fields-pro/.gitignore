@@ -1,0 +1,3 @@
+# System environment
+.DS_Store
+supervisord.pid

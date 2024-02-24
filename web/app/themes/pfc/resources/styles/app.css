@@ -1,0 +1,26 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'components/header.scss';
+@import "components/_cta.scss";
+@import "components/_tools.scss";
+@import "components/_banner.scss";
+@import "components/_generic_blocks.scss";
+
+@import 'base/typography.scss';
+@import 'base/vars.scss';
+
+.container.alignwide{
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.container, .text_content{
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.gutena-accordion-block>.gutena-accordion-block__panel.empty, .gutena-accordion-block>.gutena-accordion-block__panel.empty>.gutena-accordion-block__panel-title{
+  cursor: inherit;
+}

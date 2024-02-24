@@ -1,0 +1,23 @@
+.block-tools {
+  padding-top: var(--block-gap);
+  padding-bottom: var(--block-gap);
+  .tool_link {
+    position: relative;
+    background: var(--color);
+    transition: .3s all;
+    img{
+      mix-blend-mode: darken;
+    }
+    &:hover{
+      background: transparent;
+    }
+    &.arrow-after:after{
+      position: absolute;
+      content: var(--icons-arrow-right);
+      width: 20px;
+      height: 20px;
+      right: -40px;
+      top: calc(50% - 10px);
+    }
+  }
+}

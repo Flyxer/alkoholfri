@@ -1,0 +1,14 @@
+.cta_block{
+  .container{
+    @apply rounded-3xl py-10 px-12 flex;
+    .text-container{
+      @apply grow;
+      .cta-title{
+        @extend h3;
+      }
+    }
+    .btn{
+      @apply bg-white py-2 px-3 border rounded-3xl;
+    }
+  }
+}

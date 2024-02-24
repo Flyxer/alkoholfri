@@ -1,0 +1,16 @@
+.block_banner{
+  .container{
+    background: var(--page-color);
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    figure{
+      aspect-ratio: 3 / 3;
+      img{
+        object-fit: cover;
+        line-height: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
