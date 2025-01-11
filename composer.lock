@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6afa744566a18f42eb05d195c87a5f4",
+    "content-hash": "99f8f25847fc289484139e9d1cac905a",
     "packages": [
         {
             "name": "brick/math",
@@ -4841,6 +4841,24 @@
                 }
             ],
             "time": "2022-01-24T18:55:24+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/connect-sendgrid-for-emails",
+            "version": "1.11.15",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/connect-sendgrid-for-emails/",
+                "reference": "tags/1.11.15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/connect-sendgrid-for-emails.1.11.15.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/connect-sendgrid-for-emails/"
         },
         {
             "name": "wpackagist-plugin/svg-support",

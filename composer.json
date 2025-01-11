@@ -42,7 +42,8 @@
     "roots/wp-password-bcrypt": "1.1.0",
     "vlucas/phpdotenv": "^5.5",
     "wpackagist-plugin/svg-support": "^2.5",
-    "wpackagist-theme/twentytwentythree": "^1.0"
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "wpackagist-plugin/connect-sendgrid-for-emails": "^1.11"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1"
