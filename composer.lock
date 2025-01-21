@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99f8f25847fc289484139e9d1cac905a",
+    "content-hash": "f71a2b64a344c0eb8e3e096ae5e0af2e",
     "packages": [
         {
             "name": "brick/math",
@@ -4861,6 +4861,24 @@
             "homepage": "https://wordpress.org/plugins/connect-sendgrid-for-emails/"
         },
         {
+            "name": "wpackagist-plugin/forminator",
+            "version": "1.38.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/forminator/",
+                "reference": "tags/1.38.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/forminator.1.38.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/forminator/"
+        },
+        {
             "name": "wpackagist-plugin/svg-support",
             "version": "2.5.8",
             "source": {
@@ -4877,6 +4895,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/svg-support/"
+        },
+        {
+            "name": "wpackagist-theme/dacnis",
+            "version": "1.0.19",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/dacnis/",
+                "reference": "1.0.19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/dacnis.1.0.19.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/dacnis/"
         },
         {
             "name": "wpackagist-theme/twentytwentythree",
