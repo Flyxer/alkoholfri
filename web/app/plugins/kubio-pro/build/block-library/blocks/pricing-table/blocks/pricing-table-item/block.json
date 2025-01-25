@@ -1,0 +1,252 @@
+{
+	"name": "kubio/pricing-table-item",
+	"parent": [
+		"kubio/pricing-table"
+	],
+	"category": "kubio-layout",
+	"attributes": {
+		"slug": {
+			"type": "string",
+			"default": "pricing-table-item-title"
+		},
+		"title": {
+			"type": "string",
+			"default": "Pricing table item"
+		},
+		"ribbon": {
+			"type": "object",
+			"default": {
+				"text": "Sale",
+				"icon": "font-awesome/star"
+			}
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"default": {
+				"props": {
+					"ribbon": {
+						"type": "text",
+						"position": "right"
+					}
+				},
+				"style": {
+					"descendants": {
+						"container": {
+							"margin": {
+								"top": {
+									"value": 15,
+									"unit": "px"
+								}
+							}
+						},
+						"ribbon-text": {
+							"margin": {
+								"top": {
+									"value": 40,
+									"unit": "px"
+								}
+							},
+							"height": {
+								"value": 45,
+								"unit": "px"
+							}
+						},
+						"ribbon-icon": {
+							"size": {
+								"value": 30,
+								"unit": "px"
+							}
+						},
+						"triangle-top": {
+							"border": {
+								"top": {
+									"width": {
+										"value": 80,
+										"unit": "px"
+									}
+								},
+								"left": {
+									"width": {
+										"value": 80,
+										"unit": "px"
+									}
+								},
+								"right": {
+									"width": {
+										"value": 80,
+										"unit": "px"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"elementsEnum": {
+				"INNER": "inner",
+				"CONTAINER": "container",
+				"VSPACE": "v-space",
+				"ALIGN": "align",
+				"RIBBON": "ribbon",
+				"RIBBON_TEXT": "ribbon-text",
+				"RIBBON_TEXT_OUTSIDE": "ribbon-text-outside",
+				"TRIANGLE_TOP": "triangle-top",
+				"RIBBON_ICON": "ribbon-icon",
+				"RIBBON_WRAPPER": "ribbon-wrapper"
+			},
+			"elementsByName": {
+				"inner": {
+					"default": true,
+					"props": {
+						"className": [
+							"d-flex",
+							"h-flex-basis"
+						]
+					},
+					"supports": {
+						"background": true,
+						"separator": true
+					}
+				},
+				"container": {
+					"wrapper": true,
+					"props": {
+						"className": [
+							"d-flex"
+						]
+					}
+				},
+				"align": {
+					"props": {
+						"className": [
+							"h-y-container",
+							"h-column__content",
+							"h-column__v-align"
+						]
+					}
+				},
+				"v-space": {
+					"selector": "> * > .h-y-container > *:not(:last-child)"
+				},
+				"ribbon": {},
+				"ribbon-wrapper": {
+					"props": {
+						"className": [
+							"price-ribbon-wrapper"
+						]
+					}
+				},
+				"ribbon-icon": {
+					"props": {
+						"className": [
+							"ribbon-icon"
+						],
+						"tag": "icon"
+					}
+				},
+				"ribbon-text": {
+					"props": {
+						"className": [
+							"ribbon-text"
+						]
+					}
+				},
+				"ribbon-text-outside": {
+					"props": {
+						"className": [
+							"ribbon-text__outside"
+						]
+					}
+				},
+				"triangle-top": {
+					"props": {
+						"className": [
+							"triangle-top"
+						]
+					}
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "container"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "background"
+							},
+							{
+								"type": "separators"
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "ribbon-wrapper"
+								},
+								"children": [
+									{
+										"type": "element",
+										"props": {
+											"name": "ribbon"
+										},
+										"children": [
+											{
+												"type": "element",
+												"props": {
+													"name": "ribbon-text-outside",
+													"shouldRender": "computed.isRibbonText"
+												},
+												"children": [
+													{
+														"type": "element",
+														"props": {
+															"name": "ribbon-text"
+														}
+													}
+												]
+											},
+											{
+												"type": "element",
+												"props": {
+													"name": "triangle-top",
+													"shouldRender": "computed.isRibbonIcon"
+												},
+												"children": [
+													{
+														"type": "element",
+														"props": {
+															"name": "ribbon-icon"
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "align"
+								},
+								"children": [
+									{
+										"type": "wp:InnerBlocks"
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+{
+	"name": "kubio/slider-dots",
+	"parent": [
+		"kubio/slider"
+	],
+	"usesContext": [
+		"navigation"
+	],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"elementsEnum": {
+				"OUTER": "outer",
+				"INNER": "inner",
+				"DOT": "dot",
+				"DOTACTIVE": "dotActive"
+			},
+			"elementsByName": {
+				"outer": {},
+				"inner": {
+					"wrapper": true,
+					"default": true,
+					"props": {
+						"className": [
+							"swiper-pagination"
+						]
+					}
+				},
+				"dot": {
+					"selector": " .swiper-pagination-bullet"
+				},
+				"dotActive": {
+					"selector": " .swiper-pagination-bullet.swiper-pagination-bullet-active"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer",
+					"shouldRender": "computed.dotsEnabled"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						}
+					}
+				]
+			},
+			"default": {
+				"props": {
+					"layout": {
+						"horizontalAlign": "center",
+						"verticalAlign": "end"
+					}
+				},
+				"style": {
+					"descendants": {
+						"inner": {
+							"transform": {
+								"translate": [
+									{
+										"axis": "x",
+										"value": {
+											"value": 0,
+											"unit": "px"
+										}
+									},
+									{
+										"axis": "y",
+										"value": {
+											"value": 0,
+											"unit": "px"
+										}
+									}
+								]
+							}
+						},
+						"dot": {
+							"width": {
+								"value": 10
+							},
+							"height": {
+								"value": 10
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

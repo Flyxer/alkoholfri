@@ -1,0 +1,112 @@
+{
+	"name": "kubio/breadcrumb",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"separatorSymbol": {
+			"type": "string",
+			"default": "/"
+		},
+		"prefix": {
+			"type": "string",
+			"default": "You are here:"
+		},
+		"usePrefix": {
+			"type": "boolean",
+			"default": true
+		},
+		"isEditor": {
+			"type": "boolean",
+			"default": false
+		},
+		"home": {
+			"type": "object",
+			"default": {
+				"isIcon": true,
+				"iconName": "font-awesome/home",
+				"label": "Home"
+			}
+		},
+		"postId": {
+			"type": "number"
+		},
+		"postType": {
+			"type": "string"
+		}
+	},
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"default": {
+				"style": {
+					"descendants": {
+						"homeIcon": {
+							"size": {
+								"unit": "px",
+								"value": 15
+							}
+						},
+						"prefix": {
+							"margin": {
+								"right": {
+									"value": 15,
+									"unit": "px"
+								}
+							}
+						}
+					}
+				}
+			},
+			"elementsEnum": {
+				"OUTER": "outer",
+				"WRAPPER": "wrapper",
+				"ITEMLINK": "itemLink",
+				"ITEM": "item",
+				"ACTIVEITEM": "activeItem",
+				"SEPARATOR": "separator",
+				"PREFIX": "prefix",
+				"HOMEICON": "homeIcon"
+			},
+			"elementsByName": {
+				"outer": {
+					"default": true,
+					"wrapper": true
+				},
+				"wrapper": {
+					"selector": ".breadcrumb-items__wrapper"
+				},
+				"item": {
+					"selector": {
+						"normal": ".breadcrumb-item a, .breadcrumb-item span",
+						"hover": ".breadcrumb-item a:hover, .breadcrumb-item span:hover",
+						"active": ".breadcrumb-item.current span"
+					}
+				},
+				"activeItem": {
+					"selector": ".breadcrumb-item.current span"
+				},
+				"prefix": {
+					"selector": ".breadcrumb-items__prefix"
+				},
+				"separator": {
+					"selector": "li.breadcrumb-item:before"
+				},
+				"homeIcon": {
+					"selector": ".breadcrumb-item svg"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer"
+				}
+			}
+		}
+	}
+}

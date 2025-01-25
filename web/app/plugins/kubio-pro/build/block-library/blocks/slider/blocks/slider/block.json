@@ -1,0 +1,113 @@
+{
+	"name": "kubio/slider",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"props": {
+					"textAlign": "center",
+					"layout": {
+						"horizontalGap": 0,
+						"verticalGap": 0,
+						"horizontalInnerGap": 3,
+						"verticalInnerGap": 3,
+						"horizontalAlign": "start",
+						"verticalAlign": "center"
+					},
+					"slider": {
+						"pauseOnHover": false,
+						"slidesPerView": 3,
+						"loop": true,
+						"autoPlay": {
+							"enabled": true,
+							"direction": "left",
+							"speed": 2500
+						}
+					},
+					"navigation": {
+						"arrows": {
+							"enabled": false
+						},
+						"dots": {
+							"enabled": false
+						}
+					},
+					"transition": {
+						"effect": "slide",
+						"speed": 1000,
+						"coverflow": {
+							"rotate": 50,
+							"stretch": 0,
+							"depth": 100,
+							"modifier": 1
+						}
+					},
+					"kenBurns": {
+						"enabled": false
+					}
+				},
+				"style": {
+					"descendants": {
+						"outer": {}
+					}
+				}
+			},
+			"elementsEnum": {
+				"OUTER": "outer",
+				"CONTAINER": "container",
+				"ALLITEMS": "allitems"
+			},
+			"elementsByName": {
+				"outer": {
+					"props": {
+						"className": [
+							"d-flex"
+						]
+					},
+					"wrapper": true,
+					"default": true,
+					"supports": {
+						"background": true
+					}
+				},
+				"container": {
+					"props": {
+						"className": [
+							"d-flex"
+						]
+					}
+				},
+				"allitems": {
+					"selector": ".block-slider-item-inner"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer"
+				},
+				"children": [
+					{
+						"type": "background"
+					},
+					{
+						"type": "element",
+						"props": {
+							"name": "container"
+						},
+						"children": [
+							{
+								"type": "wp:InnerBlocks"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

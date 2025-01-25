@@ -1,0 +1,88 @@
+{
+	"name": "kubio/flipboxhover",
+	"category": "kubio-basic",
+	"parent": ["kubio/flipbox"],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"link": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"style": {
+					"descendants": {
+						"container": {
+							"display": "none",
+							"position": "absolute",
+							"width": {
+								"value": 100,
+								"unit": "%"
+							},
+							"height": {
+								"value": 100,
+								"unit": "%"
+							}
+						}
+					}
+				},
+				"props": {
+					"customPosition": "topLeft",
+					"layout": {
+						"verticalAlign": "center"
+					}
+				}
+			},
+			"elementsEnum": {
+				"CONTAINER": "container",
+				"INNER": "inner",
+				"VSPACE": "v-space"
+			},
+			"elementsByName": {
+				"container": {
+					"wrapper": true,
+					"default": true,
+					"props": {
+						"className": [
+							"back",
+							"d-flex",
+							"h-flipbox-hover-container",
+							"animated",
+							"border-radius-inherit"
+						]
+					}
+				},
+				"inner": {
+					"props": {
+					  "className": ["h-y-container"]
+					}
+				},
+				"v-space": {
+					"selector": " .wp-block-kubio-flipboxhover__inner > *:not(:last-child)"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "container"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "wp:InnerBlocks"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

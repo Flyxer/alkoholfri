@@ -1,0 +1,58 @@
+{
+	"name": "kubio/multipleimagespicture",
+	"category": "kubio-basic",
+	"parent": [
+		"kubio/multipleimages"
+	],
+	"attributes": {
+		"aspectRatio": {
+			"type": "number",
+			"default": 1
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"assetsURLImporterMap": {
+				"url": {
+					"assetIdToAttr": "id",
+					"subpath": false
+				}
+			},
+			"default": {
+				"style": {
+					"descendants": {
+						"outer": {
+							"multipleImage": {
+								"angle": 0,
+								"widthPercentage": 30,
+								"topPercentage": 20,
+								"leftPercentage": 35,
+								"zIndex": 1
+							}
+						}
+					}
+				},
+				"props": {
+					"data": {
+						"x": 100,
+						"y": 100,
+						"scaleX": 2,
+						"scaleY": 2,
+						"width": 100,
+						"height": 100
+					},
+					"frame": {
+						"enabled": false
+					}
+				}
+			},
+			"elementsByName": {
+				"outer": {
+					"wrapper": false
+				}
+			},
+			"useParentPrefix": true
+		}
+	}
+}

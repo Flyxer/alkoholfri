@@ -1,0 +1,103 @@
+{
+	"name": "kubio/slider-item",
+	"category": "kubio-basic",
+	"parent": [
+		"kubio/slider-content"
+	],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"link": {
+			"type": "object",
+			"default": {
+				"typeOpenLink": "sameWindow"
+			}
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"style": {
+					"inner": {
+						"background": {
+							"image": [
+								{
+									"forceBackgroundLayer": true
+								}
+							]
+						}
+					}
+				},
+				"props": {
+					"layout": {
+						"verticalAlign": "center",
+						"horizontalGap": "inherit",
+						"verticalGap": "inherit",
+						"horizontalInnerGap": "inherit",
+						"verticalInnerGap": "inherit"
+					}
+				}
+			},
+			"elementsEnum": {
+				"OUTER": "outer",
+				"INNER": "inner",
+				"ALIGN": "align",
+        "VSPACE": "v-space"
+			},
+			"elementsByName": {
+				"outer": {
+					"props": {
+						"className": [
+							"swiper-slide"
+						]
+					}
+				},
+				"inner": {
+					"wrapper": true,
+					"default": true,
+					"props": {
+						"className": [
+							"d-flex",
+							"block-slider-item-inner"
+						]
+					}
+				},
+				"v-space": {
+          "selector": ".wp-block-kubio-carousel-item__align > *:not(:last-child), .wp-block-kubio-slider-item__align > *:not(:last-child), .wp-block-kubio-carousel-item__align .wp-block-kubio-column__align > *:not(:last-child), .wp-block-kubio-slider-item__align .wp-block-kubio-column__align > *:not(:last-child)"
+        }
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "background"
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "align"
+								},
+								"children": [
+									{
+										"type": "wp:InnerBlocks"
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"useParentPrefix": true
+		}
+	}
+}

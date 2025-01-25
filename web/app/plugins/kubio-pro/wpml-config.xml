@@ -1,0 +1,223 @@
+<wpml-config>
+
+  <gutenberg-blocks>
+    <gutenberg-block type="kubio" translate="1" >
+		<key name="link">
+        	<key name="value" type="link"/>
+      	</key>
+	</gutenberg-block>
+    <gutenberg-block type="kubio/accordion" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/accordionitem" translate="1" >
+      <key name="title" label="Accordion Title"/>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/breadcrumb" translate="1" >
+      <key name="prefix" label="Breadcrumb Prefix"/>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/button" translate="1" >
+      <xpath >//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/buttongroup" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/carousel" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/carousel-item" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/column" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/contact" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/copyright" translate="1" >
+      <xpath label="Copyright">//*</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/counter" translate="1" label="Counter">
+      <key name="title" label="Counter Title" />
+      <key name="prefix" label="Counter Prefix" />
+      <key name="suffix" label="Counter Suffix" />
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/divider" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/flipbox" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/flipboxcontent" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/flipboxhover" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/footer" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/header" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/heading" translate="1" label="Heading">
+      <xpath>//*</xpath>
+
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/hero" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/home-button" translate="1" label="Home Button">
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/icon" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/iconlist" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/iconlistitem" translate="1" label="Icon List Item">
+      <xpath>//*</xpath>
+
+    </gutenberg-block>
+    <gutenberg-block type="kubio/image" translate="1" label="Image">
+      <xpath>//*</xpath>
+      <key name="title" label="Image Title"/>
+      <key name="alt" label="Image Alt"/>
+
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/image-gallery" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/image-gallery-item" translate="1" label="Gallery Image">
+      <key name="title" label="Gallery Image Title"/>
+      <key name="alt" label="Gallery Image Alt"/>
+      <key name="caption" label="Gallery Image Caption"/>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/link" translate="1" label="Link">
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/linkgroup" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/logo" translate="1" label="Logo">
+    </gutenberg-block>
+    <gutenberg-block type="kubio/map" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/multipleimages" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/multipleimagespicture" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/navigation" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/navigation-items" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/navigation-section" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/navigation-sticky-items" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/navigation-top-bar" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/pagination-nav-button" translate="1" label="Pagination Button">
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/pagination-numbers" translate="1" >
+      <xpath>//*</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/post-author-avatar" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/post-author-bio" translate="0" >
+    </gutenberg-block>
+    <gutenberg-block type="kubio/post-author-name" translate="0" >
+    </gutenberg-block>
+
+
+    <gutenberg-block type="kubio/post-categories" translate="1" >
+      <xpath>//*</xpath>
+      <key name="placeholder"/>
+      <key name="separator"/>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/post-comments" translate="1" >
+      <key name="prefix" label="Comment prefix" />
+      <key name="noCommentsTitle" label="No comment title" />
+      <key name="oneCommentTitle" label="One comment title" />
+      <key name="multipleComments" label="Multiple comments" />
+      <key name="commentsDisabled" label="Comments disabled" />
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/post-comments-form" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/post-content" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/post-excerpt" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/post-featured-image" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/post-meta" translate="1" label="Post Metadata">
+      <key name="metadata" >
+        <key name="*" >
+          <key name="prefix" />
+          <key name="suffix" />
+        </key>
+      </key>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/post-tags" translate="1" label="Post Tags">
+      <key name="placeholder" />
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/page-title" translate="1" >
+      <key name="templates" label="Templates">
+        <key name="normalPage" label="Normal page title" />
+        <key name="normalResultsPage" label="Normal results page title" />
+        <key name="errorPage" label="Error page title" />
+        <key name="singlePost" label="Single post title" />
+        <key name="categoryArchive" label="Category archive title" />
+        <key name="authorArchive" label="Author archive title" />
+        <key name="tagArchive" label="Tag archive title" />
+        <key name="yearArchive" label="Year archive title" />
+        <key name="monthArchive" label="Month archive title" />
+        <key name="dayArchive" label="Day archive title" />
+      </key>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/pricing" translate="1" label="Pricing">
+      <key name="customSymbol" />
+      <key name="currentPrice" />
+      <key name="originalPrice" />
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/pricing-table" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/pricing-table-item" translate="1" label="Pricing Table Item">
+      <key name="title" />
+      <key name="ribbon">
+        <key name="text" label="Pricing Table Item Ribbon"/>
+      </key>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/query-loop" translate="1" >
+      <key name="notFound"/>
+    </gutenberg-block>
+    <gutenberg-block type="kubio/query-loop-item" translate="1" >
+      <key name="label"/>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/query" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/query-layout" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/query-pagination" translate="1" >
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/read-more-button" translate="1" label="Read More Button">
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/row" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/search-form" translate="1" >
+      <key name="placeholderText" label="Search placeholder"/>
+      <key name="kubio">
+        <key name="props">
+          <key name="buttonText" label="Search button"/>
+        </key>
+      </key>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/section" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/slider" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/slider-arrow" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/slider-content" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/slider-dots" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/slider-item" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/social-icons" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/social-icon" translate="1" ></gutenberg-block>
+    <gutenberg-block type="kubio/spacer" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/subscribe-form" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/tab" translate="0" ></gutenberg-block>
+
+    <gutenberg-block type="kubio/tabitem" translate="1" >
+      <key name="title" label="Tab Title"/>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/tabitems" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/tabnavigation" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/tabnavigationitem" translate="0" ></gutenberg-block>
+    <gutenberg-block type="kubio/text" translate="1" label="Text">
+      <xpath>//*</xpath>
+    </gutenberg-block>
+
+    <gutenberg-block type="kubio/video" translate="1" label="Video">
+      <key name="youtubeUrl" />
+      <key name="vimeoUrl" />
+    </gutenberg-block>
+
+  </gutenberg-blocks>
+</wpml-config>

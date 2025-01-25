@@ -1,0 +1,38 @@
+{
+	"name": "kubio/pricing-table",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"default": {
+				"props": {
+					"fullBackground": true,
+					"layout": {
+						"equalWidth": true,
+						"equalHeight": true,
+						"itemsPerRow": 3
+					}
+				}
+			},
+			"elementsEnum": {
+				"RIBBON_TEXT": "ribbon-text",
+				"RIBBON_ICON": "ribbon-icon",
+				"RIBBON_WRAPPER": "ribbon-wrapper"
+			},
+			"elementsByName": {
+				"ribbon-wrapper": {
+					"props": {
+						"className": [
+							"ribbon-wrapper"
+						]
+					}
+				}
+			}
+		}
+	}
+}

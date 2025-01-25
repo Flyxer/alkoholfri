@@ -1,0 +1,61 @@
+{
+	"name": "kubio/slider-content",
+	"parent": [
+		"kubio/slider",
+		"kubio/carousel"
+	],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"props": {},
+				"style": {}
+			},
+			"elementsEnum": {
+				"OUTER": "outer",
+				"INNER": "inner"
+			},
+			"elementsByName": {
+				"outer": {
+					"default": true,
+					"wrapper": true,
+					"props": {
+						"className": [
+							"swiper-container"
+						]
+					}
+				},
+				"inner": {
+					"props": {
+						"className": [
+							"swiper-wrapper"
+						]
+					}
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "wp:InnerBlocks"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"name": "kubio/pricing",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"currentSymbol": {
+			"type": "string",
+			"default": "dollar"
+		},
+		"customSymbol": {
+			"type": "string",
+			"default": ""
+		},
+		"currentPrice": {
+			"type": "string",
+			"default": "89.99"
+		},
+		"currencyFormat": {
+			"type": "string",
+			"default": "formatOne"
+		},
+		"sale": {
+			"type": "boolean",
+			"default": true
+		},
+		"originalPrice": {
+			"type": "string",
+			"default": "99.99"
+		},
+		"preserveSpace": {
+			"type": "object",
+			"default": {
+				"current": false,
+				"original": false
+			}
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"default": {
+				"props": {
+					"verticalAlign": {
+						"current": {
+							"decimal": "start",
+							"symbol": "center"
+						},
+						"original": {
+							"price": "center",
+							"decimal": "start",
+							"symbol": "center"
+						}
+					}
+				},
+				"style": {
+					"descendants": {
+						"container": {
+							"justifyContent": "center"
+						},
+						"currentPrice": {
+							"typography": {
+								"size": {
+									"value": 50
+								}
+							}
+						},
+						"currentSymbol": {
+							"typography": {
+								"size": {
+									"value": 50
+								}
+							}
+						},
+						"currentDecimal": {
+							"typography": {
+								"size": {
+									"value": 30
+								}
+							}
+						},
+						"originalPrice": {
+							"typography": {
+								"size": {
+									"value": 30
+								}
+							}
+						},
+						"originalPriceSymbol": {
+							"typography": {
+								"size": {
+									"value": 30
+								}
+							}
+						},
+						"originalPriceDecimal": {
+							"typography": {
+								"size": {
+									"value": 15
+								}
+							}
+						}
+					}
+				}
+			},
+			"elementsEnum": {
+				"CONTAINER": "container",
+				"CURRENT_PRICE": "currentPrice",
+				"CURRENT_DECIMAL": "currentDecimal",
+				"CURRENT_SYMBOL": "currentSymbol",
+				"ORIGINAL_PRICE_INNER": "originalPriceInner",
+				"ORIGINAL_PRICE": "originalPrice",
+				"ORIGINAL_PRICE_DECIMAL": "originalPriceDecimal",
+				"ORIGINAL_PRICE_SYMBOL": "originalPriceSymbol"
+			},
+			"elementsByName": {
+				"container": {
+					"wrapper": true,
+					"default": true
+				},
+				"currentPrice": {
+					"props": {
+						"className": [
+							"d-flex"
+						]
+					}
+				},
+				"currentDecimal": {
+					"props": {
+						"className": [
+							"align-self-start"
+						]
+					}
+				},
+				"currentSymbol": {},
+				"originalPrice": {},
+				"originalPriceInner": {},
+				"originalPriceDecimal": {},
+				"originalPriceSymbol": {}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "container"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "originalPrice",
+							"shouldRender": "computed.sale"
+						},
+						"children": [
+							{
+								"type": "element",
+								"props": {
+									"name": "originalPriceSymbol"
+								}
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "originalPriceInner"
+								}
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "originalPriceDecimal"
+								}
+							}
+						]
+					},
+					{
+						"type": "element",
+						"props": {
+							"name": "currentSymbol"
+						}
+					},
+					{
+						"type": "element",
+						"props": {
+							"name": "currentPrice"
+						}
+					},
+					{
+						"type": "element",
+						"props": {
+							"name": "currentDecimal"
+						}
+					}
+				]
+			}
+		}
+	}
+}

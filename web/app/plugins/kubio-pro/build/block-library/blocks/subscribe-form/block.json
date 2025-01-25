@@ -1,0 +1,201 @@
+{
+	"name": "kubio/subscribe-form",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"shortcode": {
+			"type": "string",
+			"default": ""
+		},
+		"formId": {
+			"type": "string",
+			"default": ""
+		},
+		"useShortcodeLayout": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": true,
+			"default": {
+				"props": {
+					"form": {
+						"email": {
+							"label": "",
+							"widthType": "Custom",
+							"placeholder": "Your email address"
+						},
+						"submitButton": {
+							"position": "inline",
+							"size": "small",
+							"width": "fitToContent",
+							"label": "Subscribe",
+							"align": "flex-start",
+							"icon": {
+								"enabled": false,
+								"name": ""
+							}
+						},
+						"agreeTerms": {
+							"enabled": false,
+							"label": "I have read and agree to the terms & conditions"
+						}
+					},
+					"spacingBackup": {}
+				},
+				"style": {
+					"descendants": {
+						"formItems": {
+							"margin": {
+								"bottom": {
+									"unit": "px",
+									"value": 10
+								}
+							}
+						},
+						"submitButtonGroup": {
+							"justifyContent": "flex-start"
+						},
+						"agreeTermsGroup": {
+							"margin": {
+								"bottom": {
+									"unit": "px",
+									"value": 10
+								}
+							}
+						},
+						"emailField": {
+							"width": {
+								"unit": "px",
+								"value": 300
+							},
+							"padding": {
+								"top": {
+									"value": "14",
+									"unit": "px"
+								},
+								"right": {
+									"value": "15",
+									"unit": "px"
+								},
+								"bottom": {
+									"value": "14",
+									"unit": "px"
+								},
+								"left": {
+									"value": "15",
+									"unit": "px"
+								}
+							},
+							"margin": {
+								"top": {
+									"value": 0,
+									"unit": "px"
+								},
+								"right": {
+									"value": 0,
+									"unit": "px"
+								},
+								"bottom": {
+									"value": 10,
+									"unit": "px"
+								},
+								"left": {
+									"value": 0,
+									"unit": "px"
+								}
+							}
+						},
+						"submitButton": {
+							"border": {}
+						}
+					}
+				}
+			},
+			"elementsEnum": {
+				"CONTAINER": "container",
+				"FORM_WRAPPER": "formWrapper",
+				"EMAIL_FIELD": "emailField",
+				"EMAIL_GROUP": "emailGroup",
+				"EMAIL_LABEL": "emailLabel",
+				"SUBMIT_BUTTON": "submitButton",
+				"SUBMIT_BUTTON_ICON_CONTAINER": "submitButtonIconContainer",
+				"SUBMIT_BUTTON_GROUP": "submitButtonGroup",
+				"SUCCESS_MESSAGE": "successMessage",
+				"ERROR_MESSAGE": "errorMessage",
+				"FORM_ITEMS": "formItems",
+				"AGREE_TERMS_GROUP": "agreeTermsGroup",
+				"PLACEHOLDER": "placeholder"
+			},
+			"elementsByName": {
+				"container": {
+					"default": true,
+					"props": {
+						"className": [
+							"h-newsletter"
+						]
+					}
+				},
+				"formWrapper": {
+					"wrapper": true
+				},
+				"emailGroup": {
+					"selector": ".kubio-newsletter__email-group"
+				},
+				"emailField": {
+					"selector": "input:not([type=\"file\"]):not([type=\"radio\"]):not([type=\"checkbox\"]):not([type=\"submit\"])"
+				},
+				"emailLabel": {
+					"selector": "label"
+				},
+				"submitButtonGroup": {
+					"selector": ".kubio-newsletter__submit-group"
+				},
+				"submitButton": {
+					"selector": "[type=\"submit\"]"
+				},
+				"submitButtonIconContainer": {
+					"selector": ".kubio-newsletter__submit-group button[type='submit'] .h-svg-icon"
+				},
+				"agreeTermsGroup": {
+					"selector": ".kubio-newsletter__agree-terms-group"
+				},
+				"successMessage": {
+					"selector": ".mc4wp-response .mc4wp-success p"
+				},
+				"errorMessage": {
+					"selector": ".mc4wp-response .mc4wp-error p"
+				},
+				"formItems": {
+					"selector": ".mc4wp-form-fields > p"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "formWrapper"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "container",
+							"shouldRender": "computed.renderContainer"
+						}
+					},
+					{
+						"type": "element",
+						"props": {
+							"name": "placeholder",
+							"shouldRender": "computed.renderPlaceholder"
+						}
+					}
+				]
+			}
+		}
+	}
+}

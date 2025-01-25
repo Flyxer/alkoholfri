@@ -1,0 +1,113 @@
+{
+  "name": "kubio/flipbox",
+  "title": "Flip Box",
+  "category": "kubio-components",
+  "attributes": {
+    "kubio": {
+      "type": "object"
+    }
+  },
+  "supports": {
+    "kubio": {
+      "default": {
+        "style": {
+          "descendants": {
+            "hover": {
+              "animation": {
+                "duration": {
+                  "value": 1000,
+                  "unit": "ms"
+                }
+              }
+            },
+            "normal": {
+              "animation": {
+                "duration": {
+                  "value": 1000,
+                  "unit": "ms"
+                }
+              }
+            }
+          }
+        },
+        "props": {
+          "layout": {
+            "normal": {
+              "vSpace": {
+                "unit": "px",
+                "value": 20
+              }
+            },
+            "hover": {
+              "vSpace": {
+                "unit": "px",
+                "value": 20
+              }
+            }
+          },
+          "hover": {
+            "effect": {
+              "type": "fadeIn",
+              "direction": ""
+            }
+          }
+        }
+      },
+      "elementsEnum": {
+        "CONTAINER": "container",
+        "INNER": "inner",
+        "NORMAL": "normal",
+        "HOVER": "hover"
+	  },
+      "elementsByName": {
+        "container": {
+          "wrapper": true,
+          "default": true,
+          "props": {
+            "className": [
+              "d-flex",
+              "flipbox",
+              "d-flipbox-container"
+            ]
+          }
+        },
+        "inner": {
+          "props": {
+            "className": [
+              "d-flex",
+              "w-100",
+              "position-relative",
+              "border-radius-inherit",
+              "animation-overflow"
+            ]
+          }
+        },
+        "normal": {
+          "selector": ".h-flipbox-content-container"
+        },
+        "hover": {
+          "selector": " .h-flipbox-hover-container"
+        }
+      },
+      "template": {
+        "type": "element",
+        "props": {
+          "name": "container"
+        },
+        "children": [
+          {
+            "type": "element",
+            "props": {
+              "name": "inner"
+            },
+            "children": [
+              {
+                "type": "wp:InnerBlocks"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

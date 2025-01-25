@@ -1,0 +1,79 @@
+{
+	"name": "kubio/flipboxcontent",
+	"category": "kubio-basic",
+	"parent": ["kubio/flipbox"],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"style": {
+					"descendants": {
+						"container": {
+							"minHeight": {
+								"value": "300",
+								"unit": "px"
+							}
+						}
+					}
+				},
+				"props": {
+					"layout": {
+						"verticalAlign": "center"
+					}
+				}
+			},
+			"elementsEnum": {
+				"CONTAINER": "container",
+				"INNER": "inner",
+				"VSPACE": "v-space"
+			},
+			"elementsByName": {
+				"container": {
+					"wrapper": true,
+					"default": true,
+					"props": {
+						"className": [
+							"front",
+							"d-flex",
+							"animated",
+							"h-flipbox-content-container",
+							"h-hide-animation",
+							"border-radius-inherit"
+						]
+					}
+				},
+				"inner": {
+				  "props": {
+					"className": ["h-y-container"]
+				  }
+				},
+				"v-space": {
+					"selector": " .wp-block-kubio-flipboxcontent__inner > *:not(:last-child)"
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "container"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "wp:InnerBlocks"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

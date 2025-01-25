@@ -1,0 +1,100 @@
+{
+	"name": "kubio/slider-arrow",
+	"parent": [
+		"kubio/slider"
+	],
+	"usesContext": [
+		"navigation"
+	],
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"icon": {
+			"type": "object",
+			"default": {
+				"name": "font-awesome/chevron-left"
+			}
+		},
+		"direction": {
+			"type": "string",
+			"default": "prev"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"default": {
+				"_style": {
+					"descendants": {
+						"inner": {
+							"transform": {
+								"translate": [
+									{
+										"axis": "x",
+										"value": {
+											"value": 30,
+											"unit": "px"
+										}
+									},
+									{
+										"axis": "y",
+										"value": {
+											"value": 0,
+											"unit": "px"
+										}
+									}
+								]
+							}
+						}
+					}
+				},
+				"props": {
+					"horizontalAlign": "start",
+					"verticalAlign": "center"
+				}
+			},
+			"elementsEnum": {
+				"OUTER": "outer",
+				"INNER": "inner"
+			},
+			"elementsByName": {
+				"outer": {
+					"props": {
+						"className": [
+							"slider--arrow"
+						]
+					}
+				},
+				"inner": {
+					"default": true,
+					"wrapper": true,
+					"props": {
+						"className": [
+							"slider--arrow-inner"
+						]
+					}
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "outer",
+					"shouldRender": "computed.arrowsEnabled"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "inner"
+						},
+						"children": [
+							{
+								"type": "wp:InnerBlocks"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

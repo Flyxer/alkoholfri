@@ -1,0 +1,404 @@
+{
+	"name": "kubio/counter",
+	"category": "kubio-components",
+	"attributes": {
+		"kubio": {
+			"type": "object"
+		},
+		"title": {
+			"type": "string",
+			"default": "Years"
+		},
+		"start": {
+			"type": "number",
+			"default": 0
+		},
+		"final": {
+			"type": "number",
+			"default": 100
+		},
+		"amount": {
+			"type": "number",
+			"default": 1000
+		},
+		"progress": {
+			"type": "object",
+			"default": {
+				"value": 50,
+				"unit": "px"
+			}
+		},
+		"prefix": {
+			"type": "string",
+			"default": ""
+		},
+		"suffix": {
+			"type": "string",
+			"default": ""
+		},
+		"separator": {
+			"type": "string",
+			"default": "comma"
+		},
+		"iconName": {
+			"type": "string",
+			"default": "font-awesome/star"
+		}
+	},
+	"supports": {
+		"kubio": {
+			"appearanceEffect": false,
+			"default": {
+				"style": {
+					"descendants": {
+						"progress-bar-number-wrapper": {
+							"justifyContent": "center"
+						},
+						"title": {
+							"justifyContent": "center"
+						},
+						"counter-wrapper": {
+							"justifyContent": "center"
+						},
+						"progressBarNumber": {
+							"justifyContent": "center"
+						},
+						"icon": {
+							"width": {
+								"value": 12,
+								"unit": "px"
+							},
+							"height": {
+								"value": 12,
+								"unit": "px"
+							},
+							"margin": {
+								"right": {
+									"value": 10,
+									"unit": "px"
+								}
+							}
+						}
+					}
+				},
+				"props": {
+					"counterPosition": "same",
+					"titlePosition": "above",
+					"icon": {
+						"enabled": false,
+						"position": "before"
+					},
+					"counterType": "number",
+					"decimals": "todo",
+					"width": {
+						"value": 200,
+						"unit": "px"
+					},
+					"height": {
+						"value": 10,
+						"unit": "px"
+					},
+					"animationDuration": {
+						"value": 2,
+						"unit": "px"
+					},
+					"colorIn": "rgba(var(--kubio-color-2),1)",
+					"colorOut": "rgba(var(--kubio-color-1),1)",
+					"counterEmptyColor": "#ccc",
+					"titleAlign": "center"
+				}
+			},
+			"elementsEnum": {
+				"EDITOR_WRAPPER": "editorWrapper",
+				"OUTER": "outer",
+				"COUNTER": "counter",
+				"COUNTER_CONTAINER": "counterContainer",
+				"SIMPLE_COUNTER": "simpleCounter",
+				"COUNTERWRAPPER": "counter-wrapper",
+				"ICON": "icon",
+				"TITLE": "title",
+				"SIMPLE_TITLE": "simpleTitle",
+				"CIRCLE_TITLE": "circleTitle",
+				"BAR_TITLE": "barTitle",
+				"CIRCLE_COUNTER_WRAPPER": "circleCounterWrapper",
+				"TITLE_COUNTER_BAR": "titleCounterBar",
+				"PROGRESS_BAR": "progressBar",
+				"PROGRESS_BAR_CONTAINER": "progressBarContainer",
+				"PROGRESS_BAR_NUMBER": "progressBarNumber",
+				"PROGRESS_BAR_WRAPPER": "progressBarWrapper"
+			},
+			"elementsByName": {
+				"editorWrapper": {
+					"wrapper": true
+				},
+				"outer": {
+					"default": true,
+					"props": {
+						"className": "kubio-counter__outer"
+					}
+				},
+				"counter-wrapper": {
+					"props": {
+						"className": [
+							"d-flex",
+							"align-items-center"
+						]
+					}
+				},
+				"counter": {},
+				"counterContainer": {},
+				"icon": {
+					"props": {
+						"tag": "icon"
+					}
+				},
+				"title": {
+					"props": {
+						"className": [
+							"d-flex"
+						]
+					}
+				},
+				"simpleCounter": {
+					"selector": ".simple-counter"
+				},
+				"circleCounter": {
+					"selector": ".circle-counter"
+				},
+				"barCounter": {
+					"selector": ".bar-counter"
+				},
+				"simpleTitle": {
+					"selector": ".title-number"
+				},
+				"circleTitle": {
+					"selector": ".title-circle"
+				},
+				"barTitle": {
+					"selector": ".title-bar"
+				},
+				"circleCounterWrapper": {
+					"props": {
+						"className": [
+							"h-circle-progress"
+						]
+					}
+				},
+				"progressBarWrapper": {},
+				"titleCounterBar": {
+					"props": {
+						"className": [
+							"title-counter-bar",
+							"d-flex"
+						]
+					}
+				},
+				"progressBar": {
+					"props": {
+						"className": [
+							"h-bar-progress"
+						]
+					}
+				},
+				"progressBarContainer": {
+					"props": {
+						"className": [
+							"progress"
+						]
+					}
+				},
+				"progressBarNumber": {
+					"props": {
+						"className": [
+							"progress-number"
+						]
+					}
+				}
+			},
+			"template": {
+				"type": "element",
+				"props": {
+					"name": "editorWrapper"
+				},
+				"children": [
+					{
+						"type": "element",
+						"props": {
+							"name": "outer"
+						},
+						"children": [
+							{
+								"type": "element",
+								"props": {
+									"name": "counterContainer",
+									"shouldRender": "computed.showNumber"
+								},
+								"children": [
+									{
+										"type": "element",
+										"props": {
+											"name": "title",
+											"className": [
+												"title-number"
+											]
+										}
+									},
+									{
+										"type": "element",
+										"props": {
+											"name": "counter-wrapper"
+										},
+										"children": [
+											{
+												"type": "element",
+												"props": {
+													"name": "icon",
+													"shouldRender": "computed.showIcon"
+												}
+											},
+											{
+												"type": "element",
+												"props": {
+													"name": "counter",
+													"className": [
+														"simple-counter"
+													]
+												}
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "counterContainer",
+									"shouldRender": "computed.showCircle"
+								},
+								"children": [
+									{
+										"type": "element",
+										"props": {
+											"name": "circleCounterWrapper"
+										},
+										"children": [
+											{
+												"type": "element",
+												"props": {
+													"name": "title",
+													"className": [
+														"title-circle"
+													]
+												}
+											},
+											{
+												"type": "element",
+												"props": {
+													"name": "counter-wrapper"
+												},
+												"children": [
+													{
+														"type": "element",
+														"props": {
+															"name": "icon",
+															"shouldRender": "computed.showIcon"
+														}
+													},
+													{
+														"type": "element",
+														"props": {
+															"name": "counter",
+															"className": [
+																"circle-counter"
+															]
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "element",
+								"props": {
+									"name": "counterContainer",
+									"shouldRender": "computed.showBar"
+								},
+								"children": [
+									{
+										"type": "element",
+										"props": {
+											"name": "titleCounterBar"
+										},
+										"children": [
+											{
+												"type": "element",
+												"props": {
+													"name": "title",
+													"className": [
+														"title-bar"
+													]
+												}
+											},
+											{
+												"type": "element",
+												"props": {
+													"name": "counter",
+													"className": [
+														"bar-counter"
+													],
+													"shouldRender": "computed.showCounterWithTitle"
+												}
+											}
+										]
+									},
+									{
+										"type": "element",
+										"props": {
+											"name": "progressBarWrapper"
+										},
+										"children": [
+											{
+												"type": "element",
+												"props": {
+													"name": "progressBarContainer"
+												},
+												"children": [
+													{
+														"type": "element",
+														"props": {
+															"name": "progressBar"
+														}
+													}
+												]
+											},
+											{
+												"type": "element",
+												"props": {
+													"name": "progressBarNumber",
+													"shouldRender": "computed.showCounterInside"
+												},
+												"children": [
+													{
+														"type": "element",
+														"props": {
+															"name": "counter",
+															"className": [
+																"bar-counter"
+															]
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}
