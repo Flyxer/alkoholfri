@@ -4,7 +4,7 @@ Plugin Name: 	textBlock
 
 */
 if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
-    add_filter("block_parser_class", function () {
+    add_filter("block_parser_class", function ($parser_class ) {
         return "WP_Block_Parser_Custom";
     });
     class WP_Block_Parser_custom extends WP_Block_Parser
@@ -12,6 +12,10 @@ if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
         public function parse($document)
         {
             $blocks = parent::parse($document);
+
+            global $post;
+            if(isset($post) && $document != $post->post_content)
+                return $blocks;
 
             $blockName = "flyxer/text";
             $resulting_blocks = [];
@@ -40,7 +44,6 @@ if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
             ];
 
             foreach ($blocks as $item) {
-
                 if (
                     in_array($item["blockName"], $always) || (
                         in_array($item["blockName"], $text_blocks) &&
@@ -107,3 +110,23 @@ if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
         }
     }
 }
+add_action('init', function () {
+    if (!function_exists('register_block_type')) {
+        // Gutenberg is not active.
+        return;
+    }
+
+    register_block_type(
+        'flyxer/text',
+        array(
+            'render_callback' => function ($atts, $content) {
+                return "<section class='text_content'>" . $content . "</section>";
+            },
+            'attributes' => array(
+                'innerContent' => array(
+                    'type' => 'array'
+                )
+            )
+        )
+    );
+});
