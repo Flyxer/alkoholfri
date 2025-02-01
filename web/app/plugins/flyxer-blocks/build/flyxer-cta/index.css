@@ -7,7 +7,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 .block-editor-block-list__block.wp-block.wp-block-flyxer-cta {
-  max-width: 1166px;
+  max-width: 1166px !important;
+  margin: 0 auto;
+  text-align: left;
 }
 .block-editor-block-list__block.wp-block.wp-block-flyxer-cta .block_container {
   padding: 96px 68px;

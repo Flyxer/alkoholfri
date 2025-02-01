@@ -21,7 +21,7 @@ export default function save({ attributes }) {
 
 	return (
 		<div { ...blockProps }>
-			<div className="box" data-color={attributes.color}>
+			<div className={attributes.linkURL && attributes.linkText ? "box buttons" : "box"} data-color={attributes.color}>
 				<div className={"text"}>
 					<InnerBlocks.Content />
 				</div>

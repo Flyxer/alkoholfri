@@ -26,4 +26,12 @@ body{
             margin: 2.5em 0;
         }
     }
+    .wp-block{
+        p{
+            max-width: 750px;
+        }
+    }
+    .wp-block-kubio-query-loop__inner{
+        justify-content: left !important;
+    }
 }

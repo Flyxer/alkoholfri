@@ -4,12 +4,21 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+body{
+	background: #fff6f0;
+}
 .flyxer-cta{
 	max-width: 1166px;
+	margin: 0 auto;
+	text-align: left;
 	.box{
 		padding: 96px 68px;
 		display: grid;
-		grid-template-columns: 75% 25%;
+		grid-template-columns: 75%;
+		justify-content: center;
+		&.buttons{
+			grid-template-columns: 75% 25%;
+		}
 		align-items: center;
 		h2:first-child{
 			margin-top: 0;

@@ -7,14 +7,24 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+body {
+  background: #fff6f0;
+}
+
 .flyxer-cta {
   max-width: 1166px;
+  margin: 0 auto;
+  text-align: right;
 }
 .flyxer-cta .box {
   padding: 96px 68px;
   display: grid;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 75%;
+  justify-content: center;
   align-items: center;
+}
+.flyxer-cta .box.buttons {
+  grid-template-columns: 75% 25%;
 }
 .flyxer-cta .box h2:first-child {
   margin-top: 0;
