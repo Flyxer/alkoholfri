@@ -1,0 +1,53 @@
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/flyxer-cta/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.flyxer-cta {
+  max-width: 1166px;
+}
+.flyxer-cta .box {
+  padding: 96px 68px;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  align-items: center;
+}
+.flyxer-cta .box h2:first-child {
+  margin-top: 0;
+}
+.flyxer-cta .box[data-color=purple] {
+  background: #E8E1FE;
+}
+.flyxer-cta .box[data-color=purple] .buttons a {
+  color: #E8E1FE;
+}
+.flyxer-cta .box[data-color=green] {
+  background: #CFEBD2;
+}
+.flyxer-cta .box[data-color=green] .buttons a {
+  color: #CFEBD2;
+}
+.flyxer-cta .box[data-color=yellow] {
+  background: #FAE1BE;
+}
+.flyxer-cta .box[data-color=yellow] .buttons a {
+  color: #FAE1BE;
+}
+.flyxer-cta .box .buttons {
+  margin-left: 30px;
+}
+.flyxer-cta .box .buttons a {
+  text-decoration: none;
+  padding: 10px 40px;
+  background: rgba(0, 0, 0, 0.4);
+  transition: 0.3s all;
+}
+.flyxer-cta .box .buttons a:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

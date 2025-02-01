@@ -1,0 +1,46 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.block-editor-block-list__block.wp-block.wp-block-flyxer-cta {
+	max-width: 1166px;
+	.block_container{
+		padding: 96px 68px;
+		display: grid;
+		grid-template-columns: 70% 30%;
+		align-items: center;
+		&.purple{
+			background: #E8E1FE;
+			.buttons{
+				a{
+					color: #E8E1FE
+				}
+			}
+		}
+		&.green{
+			background: #CFEBD2;
+			.buttons{
+				a{
+					color: #CFEBD2
+				}
+			}
+		}
+		&.yellow{
+			background: #FAE1BE;
+			.buttons{
+				a{
+					color: #FAE1BE
+				}
+			}
+		}
+		.buttons{
+			a{
+				text-decoration: none;
+				padding: 10px 40px;
+				background: rgba(0,0,0,.4);
+			}
+		}
+	}
+}

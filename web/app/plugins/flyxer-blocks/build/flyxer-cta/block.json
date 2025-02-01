@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "flyxer/cta",
+  "version": "0.1.0",
+  "title": "CTA",
+  "category": "widgets",
+  "icon": "images-alt2",
+  "description": "Alkoholfri cta",
+  "example": {},
+  "supports": {
+    "html": true
+  },
+  "textdomain": "swap-image",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

@@ -1,0 +1,54 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.flyxer-cta{
+	max-width: 1166px;
+	.box{
+		padding: 96px 68px;
+		display: grid;
+		grid-template-columns: 75% 25%;
+		align-items: center;
+		h2:first-child{
+			margin-top: 0;
+		}
+		&[data-color=purple]{
+			background: #E8E1FE;
+			.buttons{
+				a{
+					color: #E8E1FE
+				}
+			}
+		}
+		&[data-color=green]{
+			background: #CFEBD2;
+			.buttons{
+				a{
+					color: #CFEBD2
+				}
+			}
+		}
+		&[data-color=yellow]{
+			background: #FAE1BE;
+			.buttons{
+				a{
+					color: #FAE1BE
+				}
+			}
+		}
+		.buttons{
+			margin-left: 30px;
+			a{
+				text-decoration: none;
+				padding: 10px 40px;
+				background: rgba(0,0,0,.4);
+				transition: .3s all;
+				&:hover{
+					background: rgba(0,0,0,.6);
+				}
+			}
+		}
+	}
+}

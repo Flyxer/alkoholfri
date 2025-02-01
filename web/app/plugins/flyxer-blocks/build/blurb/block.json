@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "flyxer/blurb",
+  "version": "0.1.0",
+  "title": "Blurb",
+  "category": "widgets",
+  "icon": "images-alt2",
+  "description": "Blurb",
+  "example": {},
+  "supports": {
+    "html": true
+  },
+  "textdomain": "swap-image",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

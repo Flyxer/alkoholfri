@@ -1,0 +1,29 @@
+body{
+    h1{
+        font-size: 55px;
+        line-height: 1.3;
+    }
+    .wp-block-quote{
+        margin-left: 0;
+        padding-left: 30px;
+        border-left: 2px solid;
+        font-style: italic;
+    }
+    .blurb_text{
+        font-size: 32px;
+        line-height: 1.4;
+        margin-bottom: .5em;
+        display: block;
+    }
+    .text_content{
+        ul,ol,p{
+            font-size: 24px;
+            line-height: 36px;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        figure{
+            margin: 2.5em 0;
+        }
+    }
+}
