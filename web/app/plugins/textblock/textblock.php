@@ -3,6 +3,12 @@
 Plugin Name: 	textBlock
 
 */
+
+add_action("wp_enqueue_scripts",function(){
+    $plugin_url = plugin_dir_url( __FILE__ );
+    wp_enqueue_style( 'style',  $plugin_url . "/css/style.css");
+});
+
 if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
     add_filter("block_parser_class", function ($parser_class ) {
         return "WP_Block_Parser_Custom";
