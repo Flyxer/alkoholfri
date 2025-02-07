@@ -25,6 +25,7 @@ body {
 }
 .flyxer-cta .box .text {
   max-width: 840px;
+  width: 100%;
   margin: 0 auto;
 }
 .flyxer-cta .box.buttons {
