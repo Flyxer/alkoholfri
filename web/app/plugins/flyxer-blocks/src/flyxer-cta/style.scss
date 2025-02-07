@@ -14,8 +14,12 @@ body{
 	.box{
 		padding: 96px 68px;
 		display: grid;
-		grid-template-columns: 75%;
+		grid-template-columns: 100%;
 		justify-content: center;
+		.text{
+			max-width: 840px;
+			margin: 0 auto;
+		}
 		&.buttons{
 			grid-template-columns: 75% 25%;
 		}

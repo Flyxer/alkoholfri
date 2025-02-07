@@ -19,9 +19,13 @@ body {
 .flyxer-cta .box {
   padding: 96px 68px;
   display: grid;
-  grid-template-columns: 75%;
+  grid-template-columns: 100%;
   justify-content: center;
   align-items: center;
+}
+.flyxer-cta .box .text {
+  max-width: 840px;
+  margin: 0 auto;
 }
 .flyxer-cta .box.buttons {
   grid-template-columns: 75% 25%;
