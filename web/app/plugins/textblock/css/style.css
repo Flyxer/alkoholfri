@@ -16,7 +16,7 @@ body{
         margin-bottom: .5em;
         display: block;
     }
-    .text_content{
+    .text_content,.wp-block-media-text{
         ul,ol,p{
             font-size: 20px;
             line-height: 1.5;
@@ -34,5 +34,26 @@ body{
     }
     .wp-block-kubio-query-loop__inner{
         justify-content: left !important;
+    }
+    form{
+        label,.forminator-label.forminator-label.forminator-label.forminator-label.forminator-label.forminator-label{
+            font-size: 16px !important;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        input,textarea, .forminator-input.forminator-input.forminator-input.forminator-input.forminator-input,.forminator-textarea.forminator-textarea.forminator-textarea.forminator-textarea{
+            max-width: 550px;
+            border: 2px solid #838383;
+            border-radius: 8px;
+        }
+        button,.forminator-button.forminator-button.forminator-button.forminator-button{
+            background: #CABAFF;
+            padding: 20px 30px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+            border-radius: 8px;
+        }
     }
 }
