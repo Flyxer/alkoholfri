@@ -44,6 +44,14 @@ body{
 				}
 			}
 		}
+		&[data-color=grey]{
+			background: #CED8E1;
+			.buttons{
+				a{
+					color: #CED8E1
+				}
+			}
+		}
 		&[data-color=yellow]{
 			background: #FAE1BE;
 			.buttons{
