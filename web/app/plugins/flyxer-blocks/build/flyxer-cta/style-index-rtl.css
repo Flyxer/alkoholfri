@@ -46,6 +46,12 @@ body {
 .flyxer-cta .box[data-color=green] .buttons a {
   color: #CFEBD2;
 }
+.flyxer-cta .box[data-color=grey] {
+  background: #CED8E1;
+}
+.flyxer-cta .box[data-color=grey] .buttons a {
+  color: #CED8E1;
+}
 .flyxer-cta .box[data-color=yellow] {
   background: #FAE1BE;
 }
