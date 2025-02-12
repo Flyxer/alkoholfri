@@ -29,6 +29,12 @@
 .block-editor-block-list__block.wp-block.wp-block-flyxer-cta .block_container.green .buttons a {
   color: #CFEBD2;
 }
+.block-editor-block-list__block.wp-block.wp-block-flyxer-cta .block_container.grey {
+  background: #CED8E1;
+}
+.block-editor-block-list__block.wp-block.wp-block-flyxer-cta .block_container.grey .buttons a {
+  color: #CED8E1;
+}
 .block-editor-block-list__block.wp-block.wp-block-flyxer-cta .block_container.yellow {
   background: #FAE1BE;
 }

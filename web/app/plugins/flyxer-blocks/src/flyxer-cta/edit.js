@@ -72,6 +72,7 @@ export default function Edit({attributes, setAttributes}) {
 							{ label: 'Lila', value: 'purple' },
 							{ label: 'Grønn', value: 'green' },
 							{ label: 'Gul', value: 'yellow' },
+							{ label: 'Grå', value: 'grey' },
 						] }
 						onChange={ ( newColor ) => setAttributes( {color: newColor} ) }
 						__next40pxDefaultSize

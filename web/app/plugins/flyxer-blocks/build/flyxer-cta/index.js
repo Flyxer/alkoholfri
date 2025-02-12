@@ -95,6 +95,9 @@ function Edit({
           }, {
             label: 'Gul',
             value: 'yellow'
+          }, {
+            label: 'Grå',
+            value: 'grey'
           }],
           onChange: newColor => setAttributes({
             color: newColor

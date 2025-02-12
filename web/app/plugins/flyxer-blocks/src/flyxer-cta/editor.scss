@@ -29,6 +29,14 @@
 				}
 			}
 		}
+		&.grey{
+			background: #CED8E1;
+			.buttons{
+				a{
+					color: #CED8E1;
+				}
+			}
+		}
 		&.yellow{
 			background: #FAE1BE;
 			.buttons{
