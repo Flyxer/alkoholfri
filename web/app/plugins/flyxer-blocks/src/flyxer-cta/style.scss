@@ -25,8 +25,8 @@ body{
 		@media screen and (min-width: 768px){
 			&.buttons{
 				.buttons{
-					margin-left: 0;
-					margin-top: 30px;
+					margin-left: 30px;
+					margin-top: 0;
 				}
 				grid-template-columns: 66% 33%;
 			}
@@ -68,7 +68,8 @@ body{
 			}
 		}
 		.buttons{
-			margin-left: 30px;
+			margin-left: 0;
+			margin-top: 0;
 			a{
 				text-decoration: none;
 				padding: 10px 40px;

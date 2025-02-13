@@ -34,8 +34,8 @@ body {
     grid-template-columns: 66% 33%;
   }
   .flyxer-cta .box.buttons .buttons {
-    margin-left: 0;
-    margin-top: 30px;
+    margin-left: 30px;
+    margin-top: 0;
   }
 }
 .flyxer-cta .box h2:first-child {
@@ -66,7 +66,8 @@ body {
   color: #FAE1BE;
 }
 .flyxer-cta .box .buttons {
-  margin-left: 30px;
+  margin-left: 0;
+  margin-top: 0;
 }
 .flyxer-cta .box .buttons a {
   text-decoration: none;
