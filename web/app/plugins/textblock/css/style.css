@@ -20,6 +20,10 @@ body{
         margin-bottom: .5em;
         display: block;
     }
+    .text_content{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .text_content,.wp-block-media-text{
         ul,ol,p{
             font-size: 20px;

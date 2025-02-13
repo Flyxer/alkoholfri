@@ -21,6 +21,7 @@ function create_block_swap_image_block_init() {
 	register_block_type( __DIR__ . '/build/swap-image' );
 	register_block_type( __DIR__ . '/build/blurb' );
 	register_block_type( __DIR__ . '/build/flyxer-cta' );
+	register_block_type( __DIR__ . '/build/flyxer-post-cards' );
 }
 add_action( 'init', 'create_block_swap_image_block_init' );
 

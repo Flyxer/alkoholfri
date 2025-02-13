@@ -9,6 +9,25 @@ add_action("wp_enqueue_scripts",function(){
     wp_enqueue_style( 'style',  $plugin_url . "/css/style.css");
 });
 
+function flyxer_get_ingress($post)
+{
+    $parsed_blocks = array_values(parse_blocks($post->post_content));
+    if ($parsed_blocks) {
+        foreach($parsed_blocks as $block){
+            $length = apply_filters("excerpt_length",10);
+            if ($block["blockName"] == "flyxer/text")
+                foreach ($block["innerBlocks"] as $block) {
+                    if ($block["attrs"]["fontSize"] == "medium") {
+                        return wp_trim_words( strip_tags(render_block($block)),$length,"...");
+                    }
+                }
+            else if($block["blockName"] == "core/paragraph"){
+                return wp_trim_words( strip_tags(render_block($block)),$length,"...");
+            }
+        }
+    }
+}
+
 if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
     add_filter("block_parser_class", function ($parser_class ) {
         return "WP_Block_Parser_Custom";
