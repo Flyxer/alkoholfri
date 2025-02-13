@@ -21,7 +21,6 @@ body {
   display: grid;
   grid-template-columns: 100%;
   justify-content: center;
-  grid-template-columns: 66% 33%;
   align-items: center;
 }
 .flyxer-cta .box .text {
