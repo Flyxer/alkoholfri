@@ -1,28 +1,37 @@
 <?php
-	$tags = $attributes["tags_selected"];
-	$categories = $attributes["categories_selected"];
-	$size = isset($attributes["size"]) ? $attributes["size"] : "small";
-	$title = apply_filters("the_title",$attributes["title"]);
-	$rows = isset($attributes["rows"]) ? $attributes["rows"] : 1;
 
-	$attrs = [
-		"posts_per_page" => 3 * $rows,
-		"post_type" => ["post","page"],
-		'tax_query' => []
-	];
-	if($categories){
-		$attrs["tax_query"][] = [
-			'taxonomy' => 'category',
-			'field' => 'term_id',
-			'terms' => $categories
-		];
+	$size = isset($attributes["size"]) ? $attributes["size"] : "small";
+	if(is_archive()){
+		$title = "";
+		global $wp_query;
+		$attrs = $wp_query->query_vars;
+		var_dump($attrs);
 	}
-	else if($tags){
-		$attrs["tax_query"][] = [
-			'taxonomy' => 'post_tag',
-			'field' => 'term_id',
-			'terms' => $tags
+	else{
+		$tags = $attributes["tags_selected"];
+		$categories = $attributes["categories_selected"];
+		$title = apply_filters("the_title",$attributes["title"]);
+		$rows = isset($attributes["rows"]) ? $attributes["rows"] : 1;
+
+		$attrs = [
+			"posts_per_page" => 3 * $rows,
+			"post_type" => ["post","page"],
+			'tax_query' => []
 		];
+		if($categories){
+			$attrs["tax_query"][] = [
+				'taxonomy' => 'category',
+				'field' => 'term_id',
+				'terms' => $categories
+			];
+		}
+		else if($tags){
+			$attrs["tax_query"][] = [
+				'taxonomy' => 'post_tag',
+				'field' => 'term_id',
+				'terms' => $tags
+			];
+		}
 	}
 
 	$posts = get_posts($attrs);
