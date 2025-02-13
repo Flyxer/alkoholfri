@@ -3,9 +3,10 @@
 	$categories = $attributes["categories_selected"];
 	$size = isset($attributes["size"]) ? $attributes["size"] : "small";
 	$title = apply_filters("the_title",$attributes["title"]);
+	$rows = isset($attributes["rows"]) ? $attributes["rows"] : 1;
 
 	$attrs = [
-		"posts_per_page" => 3,
+		"posts_per_page" => 3 * $rows,
 		"post_type" => ["post","page"],
 		'tax_query' => []
 	];
