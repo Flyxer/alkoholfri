@@ -39,6 +39,7 @@
 .wp-block-post-card .card {
   color: inherit !important;
   text-decoration: none;
+  margin-bottom: 30px;
 }
 .wp-block-post-card .card svg {
   margin-left: 10px;
