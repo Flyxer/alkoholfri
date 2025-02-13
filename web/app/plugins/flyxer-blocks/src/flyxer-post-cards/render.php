@@ -5,7 +5,6 @@
 		$title = "";
 		global $wp_query;
 		$attrs = $wp_query->query_vars;
-		var_dump($attrs);
 	}
 	else{
 		$tags = $attributes["tags_selected"];
