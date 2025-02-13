@@ -15,6 +15,10 @@
   box-sizing: border-box;
   grid-gap: 20px;
 }
+.wp-block-kubio-section__inner .wp-block-post-card {
+  padding-left: 0;
+  padding-right: 0;
+}
 @media screen and (min-width: 768px) {
   .wp-block-post-card {
     grid-template-columns: 1fr 1fr;
