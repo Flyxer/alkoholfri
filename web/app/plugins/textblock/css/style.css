@@ -5,8 +5,12 @@ body{
         line-height: 1.3;
     }
     div.h-section-global-spacing{
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        @media screen and (min-width: 768px){
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
     }
     .wp-block-quote{
         margin-left: 0;
