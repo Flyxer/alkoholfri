@@ -67,10 +67,24 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const categories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('taxonomy', 'category'));
   const tags = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('taxonomy', 'post_tag'));
+  const post_types = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getPostTypes({
+    per_page: 20
+  }));
+  const filtered_post_type = post_types && post_types.filter(item => item.viewable);
   let size = attributes.size || "small";
   let rows = attributes.rows || 1;
   let excerpt_length = attributes.excerpt_length || 15;
-  let words = ["hus", "bil", "bok", "stol", "bord", "dør", "vindu", "skole", "jobb", "mat", "vann", "kaffe", "brød", "melk", "eple", "hund", "katt", "fugl", "tre", "blomst", "sol", "måne", "stjerne", "himmel", "sky", "regn", "snø", "vind", "fjell", "sjø", "elv", "skog", "gress", "jord", "stein", "sand", "vei", "gate", "bro", "tog", "buss", "fly", "båt", "sykkel", "fot", "hånd", "øye", "nese", "munn", "øre", "hår", "hode", "arm", "bein", "hjerte", "lunge", "hjerne", "mage", "rygg", "kne", "klokke", "telefon", "data", "bok", "penn", "papir", "blyant", "saks", "nøkkel", "lommebok", "veske", "sekk", "sko", "jakke", "bukse", "skjorte", "genser", "lue", "vott", "skjerf", "seng", "pute", "dyne", "teppe", "lampe", "speil", "bilde", "sofa", "hylle", "skap", "kjøkken", "bad", "stue", "soverom", "gang", "trapp", "tak", "gulv", "vegg", "gardin"];
+  let postType = attributes.postType || "post";
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('postType', postType, {
+    per_page: rows * 3
+  }));
+  if (posts) {
+    posts.map((item, index) => {
+      if (item && item.featured_media) {
+        posts[index].featured_image = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core').getEntityRecord("postType", "attachment", item.featured_media);
+      } else false;
+    });
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     ...blockProps,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
@@ -99,6 +113,23 @@ function Edit({
           }),
           __next40pxDefaultSize: true,
           __nextHasNoMarginBottom: true
+        }), filtered_post_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+          value: attributes.postType,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Post type'),
+          options: filtered_post_type.map(({
+            slug,
+            name
+          }) => ({
+            label: name,
+            value: slug
+          })),
+          onChange: selected => {
+            // I haven't tested this code so I'm not sure what onChange returns.
+            // But assuming it returns an array of selected values:
+            setAttributes({
+              postType: selected
+            });
+          }
         }), categories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
           multiple: true,
           value: attributes.categories_selected,
@@ -178,9 +209,13 @@ function Edit({
       className: "block_post_card " + size,
       children: [attributes.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
         children: attributes.title
-      }), [...Array(3 * rows)].map((x, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      }), posts && posts.map((x, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "card",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("figure", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("figure", {
+          children: x.featured_image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+            src: x.featured_image.source_url
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
           className: "text",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
             className: "title",
@@ -200,12 +235,12 @@ function Edit({
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
                 d: "M2 12H22"
               })]
-            }), "Tittel"]
+            }), x.title.rendered]
           }), size == "small" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
               className: "summary",
-              children: [...Array(excerpt_length)].map((x, i) => {
-                return words[Math.floor(Math.random() * words.length)];
+              children: [...Array(excerpt_length)].map((r, i) => {
+                return x.excerpt.rendered.split(" ")[i];
               }).join(" ")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
@@ -309,6 +344,10 @@ __webpack_require__.r(__webpack_exports__);
     excerpt_length: {
       type: 'number',
       default: 15
+    },
+    postType: {
+      type: 'string',
+      default: "post"
     },
     categories_selected: {
       type: 'array',

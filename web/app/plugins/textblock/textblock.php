@@ -4,13 +4,55 @@ Plugin Name: 	textBlock
 
 */
 
+if ( !function_exists( 'is_rest' ) ) {
+    /**
+     * Checks if the current request is a WP REST API request.
+     *
+     * Case #1: After WP_REST_Request initialisation
+     * Case #2: Support "plain" permalink settings and check if `rest_route` starts with `/`
+     * Case #3: It can happen that WP_Rewrite is not yet initialized,
+     *          so do this (wp-settings.php)
+     * Case #4: URL Path begins with wp-json/ (your REST prefix)
+     *          Also supports WP installations in subfolders
+     *
+     * @returns boolean
+     * @author matzeeable
+     */
+    function is_rest() {
+        if (defined('REST_REQUEST') && REST_REQUEST // (#1)
+            || isset($_GET['rest_route']) // (#2)
+            && strpos( $_GET['rest_route'], '/', 0 ) === 0)
+            return true;
+
+        // (#3)
+        global $wp_rewrite;
+        if ($wp_rewrite === null) $wp_rewrite = new WP_Rewrite();
+
+        // (#4)
+        $rest_url = wp_parse_url( trailingslashit( rest_url( ) ) );
+        $current_url = wp_parse_url( add_query_arg( array( ) ) );
+        return strpos( $current_url['path'] ?? '/', $rest_url['path'], 0 ) === 0;
+    }
+}
+
 add_action("wp_enqueue_scripts",function(){
     $plugin_url = plugin_dir_url( __FILE__ );
     wp_enqueue_style( 'style',  $plugin_url . "/css/style.css");
 });
 
-function flyxer_get_ingress($post)
-{
+add_filter("the_excerpt" ,function($excerpt){
+    global $post;
+    return flyxer_get_ingress($post);
+},10);
+
+add_filter("excerpt_length",function ($length) {
+    if(is_rest())
+        return 50;
+    else
+        return $length;
+});
+
+function flyxer_get_ingress($post){
     $parsed_blocks = array_values(parse_blocks($post->post_content));
     if ($parsed_blocks) {
         foreach($parsed_blocks as $block){
@@ -26,6 +68,8 @@ function flyxer_get_ingress($post)
             }
         }
     }
+
+    return $post->post_excerpt;
 }
 
 if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {

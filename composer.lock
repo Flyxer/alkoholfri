@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bcba9f21bd794d6be0594a8c2f956c4d",
+    "content-hash": "667cb996e77a1e1f30218fb413eb34bd",
     "packages": [
         {
             "name": "brick/math",
@@ -4895,6 +4895,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/forminator/"
+        },
+        {
+            "name": "wpackagist-plugin/gdpr-cookie-consent",
+            "version": "3.7.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gdpr-cookie-consent/",
+                "reference": "tags/3.7.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gdpr-cookie-consent.3.7.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gdpr-cookie-consent/"
         },
         {
             "name": "wpackagist-plugin/svg-support",

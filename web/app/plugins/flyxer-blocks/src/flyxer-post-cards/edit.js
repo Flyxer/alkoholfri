@@ -12,7 +12,7 @@ import {__} from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import {InnerBlocks,InspectorControls,useBlockProps} from '@wordpress/block-editor';
-import {useSelect} from '@wordpress/data';
+import {select,useSelect} from '@wordpress/data';
 import { useState } from 'react';
 import { PanelBody, TextControl, ToggleControl,SelectControl,RangeControl } from '@wordpress/components';
 
@@ -44,22 +44,31 @@ export default function Edit({attributes, setAttributes}) {
 		select('core').getEntityRecords('taxonomy', 'post_tag')
 	);
 
+	const post_types = useSelect(select =>
+		select('core').getPostTypes( { per_page: 20 } )
+	);
+	const filtered_post_type = post_types && post_types.filter((item) => item.viewable);
+
+
 	let size = attributes.size || "small";
 	let rows = attributes.rows || 1;
 	let excerpt_length = attributes.excerpt_length || 15;
+	let postType = attributes.postType || "post";
 
-	let words = [
-		"hus", "bil", "bok", "stol", "bord", "dør", "vindu", "skole", "jobb", "mat",
-		"vann", "kaffe", "brød", "melk", "eple", "hund", "katt", "fugl", "tre", "blomst",
-		"sol", "måne", "stjerne", "himmel", "sky", "regn", "snø", "vind", "fjell", "sjø",
-		"elv", "skog", "gress", "jord", "stein", "sand", "vei", "gate", "bro", "tog",
-		"buss", "fly", "båt", "sykkel", "fot", "hånd", "øye", "nese", "munn", "øre",
-		"hår", "hode", "arm", "bein", "hjerte", "lunge", "hjerne", "mage", "rygg", "kne",
-		"klokke", "telefon", "data", "bok", "penn", "papir", "blyant", "saks", "nøkkel", "lommebok",
-		"veske", "sekk", "sko", "jakke", "bukse", "skjorte", "genser", "lue", "vott", "skjerf",
-		"seng", "pute", "dyne", "teppe", "lampe", "speil", "bilde", "sofa", "hylle", "skap",
-		"kjøkken", "bad", "stue", "soverom", "gang", "trapp", "tak", "gulv", "vegg", "gardin"
-	];
+
+	const posts = useSelect(select =>
+		select('core').getEntityRecords( 'postType', postType, { per_page: rows*3 } )
+	);
+
+	if(posts){
+		posts.map((item,index) => {
+			if (item && item.featured_media){
+				posts[index].featured_image = select('core').getEntityRecord("postType", "attachment", item.featured_media);
+			}
+			else
+				false
+		});
+	}
 
 	return (
 		<div {...blockProps}>
@@ -87,6 +96,18 @@ export default function Edit({attributes, setAttributes}) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
+					{filtered_post_type &&
+						<SelectControl
+							value={attributes.postType}
+							label={__('Post type')}
+							options={filtered_post_type.map(({slug, name}) => ({label: name, value: slug}))}
+							onChange={(selected) => {
+								// I haven't tested this code so I'm not sure what onChange returns.
+								// But assuming it returns an array of selected values:
+								setAttributes({postType: selected})
+							}}
+						/>
+					}
 					{categories &&
 						<SelectControl
 							multiple
@@ -143,20 +164,24 @@ export default function Edit({attributes, setAttributes}) {
 				{
 					attributes.title && <h2>{attributes.title}</h2>
 				}
-				{[...Array(3 * rows)].map((x, i) =>
+				{posts && posts.map((x, i) =>
 					<div className={"card"} key={i}>
-						<figure></figure>
+						<figure>
+							{
+								x.featured_image && <img src={x.featured_image.source_url}/>
+							}
+						</figure>
 						<span className="text">
 							<span className="title">
 								{
 									size == "tall" && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
 								}
-								Tittel
+                                {x.title.rendered}
 							</span>
 						{
 							size == "small" && <><span className="summary">{
-								[...Array(excerpt_length)].map((x, i) => {
-									return words[Math.floor(Math.random() * words.length)];
+								[...Array(excerpt_length)].map((r, i) => {
+									return x.excerpt.rendered.split(" ")[i];
 								}).join(" ")
 							}</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg></>
 						}

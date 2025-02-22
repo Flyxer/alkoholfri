@@ -58,6 +58,10 @@ registerBlockType( metadata.name, {
 			type: 'number',
 			default: 15,
 		},
+		postType: {
+			type: 'string',
+			default: "post",
+		},
 		categories_selected: {
 			type: 'array',
 			default: [],
