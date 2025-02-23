@@ -3,7 +3,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JP4CJQW4Q"></script>
 	<?php wp_head(); ?>
 </head>
 
