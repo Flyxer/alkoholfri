@@ -44,25 +44,25 @@ body {
   background: #E8E1FE;
 }
 .flyxer-cta .box[data-color=purple] .buttons a {
-  color: #E8E1FE;
+  color: white;
 }
 .flyxer-cta .box[data-color=green] {
   background: #CFEBD2;
 }
 .flyxer-cta .box[data-color=green] .buttons a {
-  color: #CFEBD2;
+  color: white;
 }
 .flyxer-cta .box[data-color=grey] {
   background: #CED8E1;
 }
 .flyxer-cta .box[data-color=grey] .buttons a {
-  color: #CED8E1;
+  color: white;
 }
 .flyxer-cta .box[data-color=yellow] {
   background: #FAE1BE;
 }
 .flyxer-cta .box[data-color=yellow] .buttons a {
-  color: #FAE1BE;
+  color: white;
 }
 .flyxer-cta .box .buttons {
   margin-right: 0;
@@ -70,7 +70,7 @@ body {
 }
 .flyxer-cta .box .buttons a {
   text-decoration: none;
-  padding: 10px 40px;
+  padding: 14px 40px;
   background: rgba(0, 0, 0, 0.4);
   transition: 0.3s all;
 }
