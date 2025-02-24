@@ -67,3 +67,9 @@ add_action( 'save_post', function ( $post_id ) {
 	$blurb = sanitize_text_field( $_POST['flyxer_post_blurb'] );
 	update_post_meta( $post_id, '_flyxer_post_blurb', $blurb );
 } );
+
+
+// tag hooks
+add_action('init', function () {
+	register_taxonomy_for_object_type('post_tag', 'page');
+});

@@ -75,11 +75,20 @@ function Edit({
   let rows = attributes.rows || 1;
   let excerpt_length = attributes.excerpt_length || 15;
   let postType = attributes.postType || "post";
-  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('postType', postType, {
+  let query = {
     per_page: rows * 3
-  }));
+  };
+  if (attributes.categories_selected) {
+    query.categories = attributes.categories_selected;
+  }
+  if (attributes.tags_selected) {
+    query.tags = attributes.tags_selected;
+  }
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('postType', postType, query));
+  console.log(posts);
   if (posts) {
     posts.map((item, index) => {
+      let show = true;
       if (item && item.featured_media) {
         posts[index].featured_image = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core').getEntityRecord("postType", "attachment", item.featured_media);
       } else false;

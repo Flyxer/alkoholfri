@@ -55,13 +55,25 @@ export default function Edit({attributes, setAttributes}) {
 	let excerpt_length = attributes.excerpt_length || 15;
 	let postType = attributes.postType || "post";
 
+	let query = { per_page: rows*3 };
+	if(attributes.categories_selected){
+		query.categories = attributes.categories_selected;
+	}
+	if(attributes.tags_selected){
+		query.tags = attributes.tags_selected;
+	}
+
+
 
 	const posts = useSelect(select =>
-		select('core').getEntityRecords( 'postType', postType, { per_page: rows*3 } )
+		select('core').getEntityRecords( 'postType', postType, query )
 	);
+
+	console.log(posts);
 
 	if(posts){
 		posts.map((item,index) => {
+			let show = true;
 			if (item && item.featured_media){
 				posts[index].featured_image = select('core').getEntityRecord("postType", "attachment", item.featured_media);
 			}
