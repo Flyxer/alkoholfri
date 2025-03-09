@@ -104,7 +104,8 @@ if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
                 "core/heading",
                 "core/paragraph",
                 "core/columns",
-                "acf/acf-tools"
+                "acf/acf-tools",
+                "core/social-links"
             ];
 
             $always = [
