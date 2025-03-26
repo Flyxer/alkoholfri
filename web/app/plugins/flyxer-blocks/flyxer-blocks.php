@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function create_block_swap_image_block_init() {
 	register_block_type( __DIR__ . '/build/swap-image' );
 	register_block_type( __DIR__ . '/build/blurb' );
+	register_block_type( __DIR__ . '/build/post_share' );
 	register_block_type( __DIR__ . '/build/flyxer-cta' );
 	register_block_type( __DIR__ . '/build/flyxer-post-cards' );
 }
