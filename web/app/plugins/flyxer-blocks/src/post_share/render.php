@@ -4,7 +4,7 @@ global $post;
 $icons = get_field("icons","options");
 if($icons) :
 ?>
-<div class="entry-content">
+<div class="entry-content share_links">
 	<div class="text_content">
 		<div class="h4">
 			Del innlegg:

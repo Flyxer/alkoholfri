@@ -16,6 +16,7 @@ body{
 		display: grid;
 		grid-template-columns: 100%;
 		justify-content: center;
+		align-items: center;
 		.text{
 			max-width: 840px;
 			width: 100%;
@@ -30,7 +31,6 @@ body{
 				grid-template-columns: 66% 33%;
 			}
 		}
-		align-items: center;
 		h2:first-child{
 			margin-top: 0;
 		}

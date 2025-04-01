@@ -41,7 +41,7 @@ wp_localize_script(
 
 <div class="dacnis-admin-big-notice--container">
 	<div class="logo-holder">
-		<h2><?php echo sprintf(__("Choose one of the %s predefined designs to start with:"), ucfirst(get_stylesheet())); ?></h2>
+        <h2><?php echo sprintf(__("Choose one of the %s predefined designs to start with:", 'dacnis'), ucfirst(get_stylesheet())); ?></h2>
 	</div>
 	<div class="content-holder">
 		<ul class="predefined-front-pages">
