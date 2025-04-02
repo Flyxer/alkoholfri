@@ -68,4 +68,14 @@ body{
             border-radius: 8px;
         }
     }
+    .mc4wp-form{
+        input:not([type=submit]){
+            display: block;
+            width: 100%;
+            padding: 10px 20px !important;
+        }
+        input[type=submit]{
+            margin-top: 3em;
+        }
+    }
 }
