@@ -1,1 +1,42 @@
-.h4{font-size:20px;font-style:normal;font-weight:600;line-height:1.4;margin-bottom:20px;text-align:left}.share_links{margin-top:3em}.post_share{align-items:center;display:flex}.post_share a{margin-right:20px}.post_share a svg path{fill:rgba(0,0,0,.5);transition:all .3s}.post_share a:hover svg path{fill:#6343cc}.post_share svg{height:30px;width:auto}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/post_share/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.h4 {
+  font-weight: 600;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.4;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.share_links {
+  margin-top: 3em;
+}
+
+.post_share {
+  display: flex;
+  align-items: center;
+}
+.post_share a {
+  margin-right: 20px;
+}
+.post_share a svg path {
+  fill: rgba(0, 0, 0, 0.5);
+  transition: 0.3s all;
+}
+.post_share a:hover svg path {
+  fill: rgb(99, 67, 204);
+}
+.post_share svg {
+  width: auto;
+  height: 30px;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

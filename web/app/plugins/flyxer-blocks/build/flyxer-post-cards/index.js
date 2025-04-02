@@ -1,1 +1,714 @@
-(()=>{"use strict";var e,t={216:()=>{const e=window.wp.blocks,t=window.wp.i18n,a=window.wp.blockEditor,s=window.wp.data,l=(window.React,window.wp.components),r=window.ReactJSXRuntime,o=JSON.parse('{"UU":"flyxer/postcard"}');(0,e.registerBlockType)(o.UU,{edit:function({attributes:e,setAttributes:o}){const i=(0,a.useBlockProps)(),n=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","category"))),c=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","post_tag"))),d=(0,s.useSelect)((e=>e("core").getPostTypes({per_page:20}))),p=d&&d.filter((e=>e.viewable));let u=e.size||"small",g=e.rows||1,m=e.excerpt_length||15,x=e.postType||"post",h={per_page:3*g};e.categories_selected&&(h.categories=e.categories_selected),e.tags_selected&&(h.tags=e.tags_selected);const _=(0,s.useSelect)((e=>e("core").getEntityRecords("postType",x,h)));return console.log(_),_&&_.map(((e,t)=>{e&&e.featured_media&&(_[t].featured_image=(0,s.select)("core").getEntityRecord("postType","attachment",e.featured_media))})),(0,r.jsxs)("div",{...i,children:[(0,r.jsx)(a.InspectorControls,{children:(0,r.jsxs)(l.PanelBody,{title:(0,t.__)("Settings","flyxer-blocks"),children:[(0,r.jsx)(l.TextControl,{__nextHasNoMarginBottom:!0,__next40pxDefaultSize:!0,label:(0,t.__)("Overskrift"),value:e.title||"",onChange:e=>o({title:e})}),(0,r.jsx)(l.SelectControl,{label:"Størrelse",value:e.size,options:[{label:"Liten",value:"small"},{label:"Høy",value:"tall"}],onChange:e=>o({size:e}),__next40pxDefaultSize:!0,__nextHasNoMarginBottom:!0}),p&&(0,r.jsx)(l.SelectControl,{value:e.postType,label:(0,t.__)("Post type"),options:p.map((({slug:e,name:t})=>({label:t,value:e}))),onChange:e=>{o({postType:e})}}),n&&(0,r.jsx)(l.SelectControl,{multiple:!0,value:e.categories_selected,label:(0,t.__)("Kategori"),options:n.map((({id:e,name:t})=>({label:t,value:e}))),onChange:e=>{o({categories_selected:e})}}),(0,r.jsx)("a",{onClick:function(e){e.preventDefault,o({categories_selected:[]})},children:"Tøm kategorier"}),c&&(0,r.jsx)(l.SelectControl,{multiple:!0,value:e.tags_selected,label:(0,t.__)("Tag"),options:c.map((({id:e,name:t})=>({label:t,value:e}))),onChange:e=>{o({tags_selected:e})}}),(0,r.jsx)("a",{onClick:function(e){e.preventDefault,o({tags_selected:[]})},children:"Tøm stikkord"}),(0,r.jsx)(l.RangeControl,{__nextHasNoMarginBottom:!0,__next40pxDefaultSize:!0,label:"Columns",value:g,onChange:e=>o({rows:e}),min:1,max:30}),(0,r.jsx)(l.RangeControl,{__nextHasNoMarginBottom:!0,__next40pxDefaultSize:!0,label:"Sammendrag ord",value:m,onChange:e=>o({excerpt_length:e}),min:10,max:50})]})}),(0,r.jsxs)("div",{className:"block_post_card "+u,children:[e.title&&(0,r.jsx)("h2",{children:e.title}),_&&_.map(((e,t)=>(0,r.jsxs)("div",{className:"card",children:[(0,r.jsx)("figure",{children:e.featured_image&&(0,r.jsx)("img",{src:e.featured_image.source_url})}),(0,r.jsxs)("span",{className:"text",children:[(0,r.jsxs)("span",{className:"title",children:["tall"==u&&(0,r.jsxs)("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor","stroke-width":"2","stroke-linecap":"round","stroke-linejoin":"round",className:"lucide lucide-move-right",children:[(0,r.jsx)("path",{d:"M18 8L22 12L18 16"}),(0,r.jsx)("path",{d:"M2 12H22"})]}),e.title.rendered]}),"small"==u&&(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)("span",{className:"summary",children:[...Array(m)].map(((t,a)=>e.excerpt.rendered.split(" ")[a])).join(" ")}),(0,r.jsxs)("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor","stroke-width":"2","stroke-linecap":"round","stroke-linejoin":"round",className:"lucide lucide-move-right",children:[(0,r.jsx)("path",{d:"M18 8L22 12L18 16"}),(0,r.jsx)("path",{d:"M2 12H22"})]})]})]})]},t))),e.categories_selected.map((e=>(0,r.jsx)("div",{className:"category","data-id":e}))),e.tags_selected.map((e=>(0,r.jsx)("div",{className:"tag","data-id":e})))]})]})},save:function({attributes:e}){const t=a.useBlockProps.save({className:"flyxer-cta"});return(0,r.jsxs)("div",{...t,children:[e.categories_selected.map((e=>(0,r.jsx)("div",{className:"category","data-id":e,children:e}))),e.tags_selected.map((e=>(0,r.jsx)("div",{className:"tag","data-id":e,children:e})))]})},supports:{alignWide:!0},attributes:{size:{type:"string",default:""},title:{type:"string",default:""},rows:{type:"number",default:1},excerpt_length:{type:"number",default:15},postType:{type:"string",default:"post"},categories_selected:{type:"array",default:[],selector:".category",query:{value:{type:"number",source:"attribute",attribute:"data-id"}}},tags_selected:{type:"array",default:[],selector:".tag",query:{value:{type:"number",source:"attribute",attribute:"data-id"}}}}})}},a={};function s(e){var l=a[e];if(void 0!==l)return l.exports;var r=a[e]={exports:{}};return t[e](r,r.exports,s),r.exports}s.m=t,e=[],s.O=(t,a,l,r)=>{if(!a){var o=1/0;for(d=0;d<e.length;d++){for(var[a,l,r]=e[d],i=!0,n=0;n<a.length;n++)(!1&r||o>=r)&&Object.keys(s.O).every((e=>s.O[e](a[n])))?a.splice(n--,1):(i=!1,r<o&&(o=r));if(i){e.splice(d--,1);var c=l();void 0!==c&&(t=c)}}return t}r=r||0;for(var d=e.length;d>0&&e[d-1][2]>r;d--)e[d]=e[d-1];e[d]=[a,l,r]},s.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={473:0,509:0};s.O.j=t=>0===e[t];var t=(t,a)=>{var l,r,[o,i,n]=a,c=0;if(o.some((t=>0!==e[t]))){for(l in i)s.o(i,l)&&(s.m[l]=i[l]);if(n)var d=n(s)}for(t&&t(a);c<o.length;c++)r=o[c],s.o(e,r)&&e[r]&&e[r][0](),e[r]=0;return s.O(d)},a=globalThis.webpackChunkswap_image=globalThis.webpackChunkswap_image||[];a.forEach(t.bind(null,0)),a.push=t.bind(null,a.push.bind(a))})();var l=s.O(void 0,[509],(()=>s(216)));l=s.O(l)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/flyxer-post-cards/edit.js":
+/*!***************************************!*\
+  !*** ./src/flyxer-post-cards/edit.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/flyxer-post-cards/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @return {Element} Element to render.
+ */
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const categories = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('taxonomy', 'category'));
+  const tags = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('taxonomy', 'post_tag'));
+  const post_types = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getPostTypes({
+    per_page: 20
+  }));
+  const filtered_post_type = post_types && post_types.filter(item => item.viewable);
+  let size = attributes.size || "small";
+  let rows = attributes.rows || 1;
+  let excerpt_length = attributes.excerpt_length || 15;
+  let postType = attributes.postType || "post";
+  let query = {
+    per_page: rows * 3
+  };
+  if (attributes.categories_selected) {
+    query.categories = attributes.categories_selected;
+  }
+  if (attributes.tags_selected) {
+    query.tags = attributes.tags_selected;
+  }
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select('core').getEntityRecords('postType', postType, query));
+  console.log(posts);
+  if (posts) {
+    posts.map((item, index) => {
+      let show = true;
+      if (item && item.featured_media) {
+        posts[index].featured_image = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core').getEntityRecord("postType", "attachment", item.featured_media);
+      } else false;
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    ...blockProps,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings', 'flyxer-blocks'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: true,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Overskrift'),
+          value: attributes.title || '',
+          onChange: value => setAttributes({
+            title: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+          label: "St\xF8rrelse",
+          value: attributes.size,
+          options: [{
+            label: 'Liten',
+            value: 'small'
+          }, {
+            label: 'Høy',
+            value: 'tall'
+          }],
+          onChange: newSize => setAttributes({
+            size: newSize
+          }),
+          __next40pxDefaultSize: true,
+          __nextHasNoMarginBottom: true
+        }), filtered_post_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+          value: attributes.postType,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Post type'),
+          options: filtered_post_type.map(({
+            slug,
+            name
+          }) => ({
+            label: name,
+            value: slug
+          })),
+          onChange: selected => {
+            // I haven't tested this code so I'm not sure what onChange returns.
+            // But assuming it returns an array of selected values:
+            setAttributes({
+              postType: selected
+            });
+          }
+        }), categories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+          multiple: true,
+          value: attributes.categories_selected,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Kategori'),
+          options: categories.map(({
+            id,
+            name
+          }) => ({
+            label: name,
+            value: id
+          })),
+          onChange: selected => {
+            // I haven't tested this code so I'm not sure what onChange returns.
+            // But assuming it returns an array of selected values:
+            setAttributes({
+              categories_selected: selected
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+          onClick: function (e) {
+            e.preventDefault;
+            setAttributes({
+              categories_selected: []
+            });
+          },
+          children: "T\xF8m kategorier"
+        }), tags && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+          multiple: true,
+          value: attributes.tags_selected,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tag'),
+          options: tags.map(({
+            id,
+            name
+          }) => ({
+            label: name,
+            value: id
+          })),
+          onChange: selected => {
+            // I haven't tested this code so I'm not sure what onChange returns.
+            // But assuming it returns an array of selected values:
+
+            setAttributes({
+              tags_selected: selected
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+          onClick: function (e) {
+            e.preventDefault;
+            setAttributes({
+              tags_selected: []
+            });
+          },
+          children: "T\xF8m stikkord"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: true,
+          label: "Columns",
+          value: rows,
+          onChange: value => setAttributes({
+            rows: value
+          }),
+          min: 1,
+          max: 30
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: true,
+          label: "Sammendrag ord",
+          value: excerpt_length,
+          onChange: value => setAttributes({
+            excerpt_length: value
+          }),
+          min: 10,
+          max: 50
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "block_post_card " + size,
+      children: [attributes.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+        children: attributes.title
+      }), posts && posts.map((x, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("figure", {
+          children: x.featured_image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+            src: x.featured_image.source_url
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+          className: "text",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+            className: "title",
+            children: [size == "tall" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              "stroke-width": "2",
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              className: "lucide lucide-move-right",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                d: "M18 8L22 12L18 16"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                d: "M2 12H22"
+              })]
+            }), x.title.rendered]
+          }), size == "small" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "summary",
+              children: [...Array(excerpt_length)].map((r, i) => {
+                return x.excerpt.rendered.split(" ")[i];
+              }).join(" ")
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              "stroke-width": "2",
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              className: "lucide lucide-move-right",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                d: "M18 8L22 12L18 16"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                d: "M2 12H22"
+              })]
+            })]
+          })]
+        })]
+      }, i)), attributes.categories_selected.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "category",
+        "data-id": item
+      })), attributes.tags_selected.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "tag",
+        "data-id": item
+      }))]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/flyxer-post-cards/index.js":
+/*!****************************************!*\
+  !*** ./src/flyxer-post-cards/index.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/flyxer-post-cards/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/flyxer-post-cards/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/flyxer-post-cards/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/flyxer-post-cards/block.json");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  supports: {
+    // Remove the support for wide alignment.
+    alignWide: true
+  },
+  attributes: {
+    size: {
+      type: 'string',
+      default: ""
+    },
+    title: {
+      type: 'string',
+      default: ""
+    },
+    rows: {
+      type: 'number',
+      default: 1
+    },
+    excerpt_length: {
+      type: 'number',
+      default: 15
+    },
+    postType: {
+      type: 'string',
+      default: "post"
+    },
+    categories_selected: {
+      type: 'array',
+      default: [],
+      selector: '.category',
+      query: {
+        value: {
+          type: 'number',
+          source: 'attribute',
+          attribute: 'data-id'
+        }
+      }
+    },
+    tags_selected: {
+      type: 'array',
+      default: [],
+      selector: '.tag',
+      query: {
+        value: {
+          type: 'number',
+          source: 'attribute',
+          attribute: 'data-id'
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/flyxer-post-cards/save.js":
+/*!***************************************!*\
+  !*** ./src/flyxer-post-cards/save.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {Element} Element to render.
+ */
+
+function save({
+  attributes
+}) {
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: 'flyxer-cta'
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ...blockProps,
+    children: [attributes.categories_selected.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "category",
+      "data-id": item,
+      children: item
+    })), attributes.tags_selected.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "tag",
+      "data-id": item,
+      children: item
+    }))]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/flyxer-post-cards/editor.scss":
+/*!*******************************************!*\
+  !*** ./src/flyxer-post-cards/editor.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/flyxer-post-cards/style.scss":
+/*!******************************************!*\
+  !*** ./src/flyxer-post-cards/style.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/flyxer-post-cards/block.json":
+/*!******************************************!*\
+  !*** ./src/flyxer-post-cards/block.json ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"flyxer/postcard","version":"0.1.0","title":"Post cards","category":"widgets","icon":"align-full-width","description":"Post card list","example":{},"supports":{"html":true},"textdomain":"flyxer-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"flyxer-post-cards/index": 0,
+/******/ 			"flyxer-post-cards/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkswap_image"] = globalThis["webpackChunkswap_image"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["flyxer-post-cards/style-index"], () => (__webpack_require__("./src/flyxer-post-cards/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

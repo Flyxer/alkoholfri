@@ -176,6 +176,22 @@ if (class_exists("WP_Block_Parser") && !is_admin() && !wp_is_json_request()) {
                     $resulting_blocks[++$n] = $item;
                 }
             }
+            if(count($resulting_blocks)){
+                $index = -1;
+                foreach($resulting_blocks as $key =>  $block){
+                    if($block["blockName"] == $blockName)
+                        $index = $key;
+                }
+                if($index >= 0 && is_single()){
+                    $resulting_blocks[$index]["innerBlocks"][] = [
+                        "blockName" => "flyxer/sharepost"
+                    ];
+                    $resulting_blocks[$index]["innerContent"][] = [
+                        "blockName" => "flyxer/sharepost"
+                    ];
+                }
+            }
+
             return $resulting_blocks;
         }
     }

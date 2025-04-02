@@ -1,1 +1,79 @@
-body{background:#fff6f0}.flyxer-cta{margin:0 auto;max-width:1166px;text-align:right}.flyxer-cta .box{align-items:center;display:grid;grid-template-columns:100%;justify-content:center;padding:96px 68px}.flyxer-cta .box .text{margin:0 auto;max-width:840px;width:100%}@media screen and (min-width:768px){.flyxer-cta .box.buttons{grid-template-columns:66% 33%}.flyxer-cta .box.buttons .buttons{margin-right:30px;margin-top:0}}.flyxer-cta .box h2:first-child{margin-top:0}.flyxer-cta .box[data-color=purple]{background:#e8e1fe}.flyxer-cta .box[data-color=purple] .buttons a{color:#fff}.flyxer-cta .box[data-color=green]{background:#cfebd2}.flyxer-cta .box[data-color=green] .buttons a{color:#fff}.flyxer-cta .box[data-color=grey]{background:#ced8e1}.flyxer-cta .box[data-color=grey] .buttons a{color:#fff}.flyxer-cta .box[data-color=yellow]{background:#fae1be}.flyxer-cta .box[data-color=yellow] .buttons a{color:#fff}.flyxer-cta .box .buttons{margin-right:0;margin-top:30px}.flyxer-cta .box .buttons a{background:rgba(0,0,0,.4);padding:14px 40px;text-decoration:none;transition:all .3s}.flyxer-cta .box .buttons a:hover{background:rgba(0,0,0,.6)}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/flyxer-cta/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+body {
+  background: #fff6f0;
+}
+
+.flyxer-cta {
+  max-width: 1166px;
+  margin: 0 auto;
+  text-align: right;
+}
+.flyxer-cta .box {
+  padding: 96px 68px;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.flyxer-cta .box .text {
+  max-width: 840px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .flyxer-cta .box.buttons {
+    grid-template-columns: 66% 33%;
+  }
+  .flyxer-cta .box.buttons .buttons {
+    margin-right: 30px;
+    margin-top: 0;
+  }
+}
+.flyxer-cta .box h2:first-child {
+  margin-top: 0;
+}
+.flyxer-cta .box[data-color=purple] {
+  background: #E8E1FE;
+}
+.flyxer-cta .box[data-color=purple] .buttons a {
+  color: white;
+}
+.flyxer-cta .box[data-color=green] {
+  background: #CFEBD2;
+}
+.flyxer-cta .box[data-color=green] .buttons a {
+  color: white;
+}
+.flyxer-cta .box[data-color=grey] {
+  background: #CED8E1;
+}
+.flyxer-cta .box[data-color=grey] .buttons a {
+  color: white;
+}
+.flyxer-cta .box[data-color=yellow] {
+  background: #FAE1BE;
+}
+.flyxer-cta .box[data-color=yellow] .buttons a {
+  color: white;
+}
+.flyxer-cta .box .buttons {
+  margin-right: 0;
+  margin-top: 30px;
+}
+.flyxer-cta .box .buttons a {
+  text-decoration: none;
+  padding: 14px 40px;
+  background: rgba(0, 0, 0, 0.4);
+  transition: 0.3s all;
+}
+.flyxer-cta .box .buttons a:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
